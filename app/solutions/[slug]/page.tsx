@@ -11,7 +11,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const page = solutionBySlug(slug);
   return {
     title: page ? page.title : "Solutions",
-    description: page?.description || "ReimeiTech solution accelerators for AI, SaaS, workflow automation, secure portals, and RAG knowledge bases."
+    description:
+      page?.description ||
+      "maxIEI solution accelerators for AI, SaaS, workflow automation, secure portals, and RAG knowledge bases."
   };
 }
 

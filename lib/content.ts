@@ -3,6 +3,7 @@ export type Card = {
   text: string;
   items?: string[];
   href?: string;
+  image?: string;
 };
 
 export type ServicePage = {
@@ -16,6 +17,175 @@ export type ServicePage = {
   sections: Card[];
   related: string[];
 };
+
+/* ============================================================
+   Brand
+   ============================================================ */
+
+export const brand = {
+  name: "maxIEI",
+  legal: "maxIEI, Inc.",
+  tagline: "Integrity. Excellence. Innovation.",
+  promise:
+    "We build trusted AI solutions with uncompromising quality while continuously pushing the boundaries of technology to create lasting value for our clients.",
+  founded: 2019
+};
+
+export const hq = {
+  city: "Austin",
+  state: "Texas",
+  country: "United States",
+  label: "Austin, Texas, USA",
+  district: "Downtown · Congress Avenue corridor",
+  timezone: "CST / UTC−6",
+  mapQuery: "Downtown+Austin,+Texas,+USA",
+  coords: "30.2672° N, 97.7431° W"
+};
+
+/* ============================================================
+   Values — the operating system of the company
+   ============================================================ */
+
+export type Value = {
+  id: string;
+  name: string;
+  hue: string;
+  headline: string;
+  text: string;
+  image: string;
+  proof: string[];
+};
+
+export const values: Value[] = [
+  {
+    id: "integrity",
+    name: "Integrity",
+    hue: "var(--integrity)",
+    headline: "We do what we said we would do.",
+    text: "We act with honesty, transparency, and accountability. We build trust by delivering what we promise, protecting client data, and communicating openly — including when the news is inconvenient.",
+    image: "/images/value-integrity.jpg",
+    proof: ["Open roadmaps", "Data protection by default", "Honest scoping", "No hidden change orders"]
+  },
+  {
+    id: "excellence",
+    name: "Excellence",
+    hue: "var(--excellence)",
+    headline: "Reliable, secure, scalable, maintainable.",
+    text: "We strive for the highest standards in everything we build. Every product is designed to be reliable, secure, scalable, and maintainable long after the launch announcement is over.",
+    image: "/images/value-excellence.jpg",
+    proof: ["Reviewed code", "Tested workflows", "Documented handoff", "Production-grade from day one"]
+  },
+  {
+    id: "innovation",
+    name: "Innovation",
+    hue: "var(--innovation)",
+    headline: "New technology, applied with judgement.",
+    text: "We embrace new technologies and creative thinking to solve complex problems. We continuously explore AI and modern engineering to deliver better solutions — not to chase a headline.",
+    image: "/images/value-innovation.jpg",
+    proof: ["Applied AI research", "Rapid evaluation", "Model-agnostic design", "Measured against outcomes"]
+  }
+];
+
+/* ============================================================
+   Team — an eight-person company across seven countries.
+   Nicknames are used publicly; full names are shared on engagement.
+   ============================================================ */
+
+export type Person = {
+  nickname: string;
+  role: string;
+  location: string;
+  flag: string;
+  bio: string;
+  hue: string;
+  hue2: string;
+};
+
+export const team: Person[] = [
+  {
+    nickname: "Max",
+    role: "Chief Executive Officer",
+    location: "Austin, United States",
+    flag: "🇺🇸",
+    bio: "Sets company direction and owns every client relationship end to end. Spent a decade shipping enterprise platforms before founding maxIEI around a single rule: promise less, deliver more.",
+    hue: "#5af0c8",
+    hue2: "#57b8ff"
+  },
+  {
+    nickname: "Kenji",
+    role: "Chief Technology Officer",
+    location: "Tokyo, Japan",
+    flag: "🇯🇵",
+    bio: "Owns architecture, engineering standards, and technical review. Believes a system is only finished when the next engineer can understand it without asking a question.",
+    hue: "#8c7cff",
+    hue2: "#57b8ff"
+  },
+  {
+    nickname: "Rafa",
+    role: "Lead AI Engineer",
+    location: "Guadalajara, Mexico",
+    flag: "🇲🇽",
+    bio: "Builds the retrieval pipelines, agent graphs, and evaluation harnesses behind our AI work. Treats every model output as something that has to be measured, not trusted.",
+    hue: "#5af0c8",
+    hue2: "#ffc46b"
+  },
+  {
+    nickname: "Amir",
+    role: "Backend & Platform Engineer",
+    location: "Kuala Lumpur, Malaysia",
+    flag: "🇲🇾",
+    bio: "Designs the APIs, data models, and job systems everything else stands on. Has a long-running grudge against any endpoint that fails quietly.",
+    hue: "#57b8ff",
+    hue2: "#8c7cff"
+  },
+  {
+    nickname: "Jom",
+    role: "Full-Stack Engineer",
+    location: "Manila, Philippines",
+    flag: "🇵🇭",
+    bio: "Moves between product UI and backend services daily. Turns rough workflow sketches into interfaces the client's team actually wants to open on a Monday.",
+    hue: "#ffc46b",
+    hue2: "#5af0c8"
+  },
+  {
+    nickname: "Bea",
+    role: "Frontend & Design Engineer",
+    location: "Cebu, Philippines",
+    flag: "🇵🇭",
+    bio: "Owns the design system, accessibility, and the last five percent of polish. Argues — usually successfully — that a confusing dashboard is a broken dashboard.",
+    hue: "#8c7cff",
+    hue2: "#ffc46b"
+  },
+  {
+    nickname: "Luc",
+    role: "Security & DevOps Engineer",
+    location: "Lyon, France",
+    flag: "🇫🇷",
+    bio: "Runs infrastructure, CI/CD, monitoring, and the threat model. Reviews every permission boundary before a system is allowed near real customer data.",
+    hue: "#57b8ff",
+    hue2: "#5af0c8"
+  },
+  {
+    nickname: "Tico",
+    role: "Data Engineer",
+    location: "São Paulo, Brazil",
+    flag: "🇧🇷",
+    bio: "Builds the pipelines, warehouses, and reporting layers that make the rest of the stack useful. Believes most AI problems are actually data problems wearing a costume.",
+    hue: "#ffc46b",
+    hue2: "#8c7cff"
+  }
+];
+
+export const teamStats = [
+  ["7", "countries"],
+  ["16h", "engineering coverage per day"],
+  ["1", "shared code standard"],
+  ["100%", "senior engineers"]
+];
+
+/* ============================================================
+   Services
+   ============================================================ */
 
 const aiRelated = [
   "AI Automation Systems",
@@ -44,80 +214,84 @@ export const buildCategories: Card[] = [
     title: "AI & Automation",
     text: "AI systems that automate repetitive work, use company knowledge, support customers, extract documents, generate reports, and keep humans in control.",
     href: "/services/ai-and-automation/ai-automation-systems",
-    items: ["AI agents", "RAG knowledge bases", "Document AI", "AI customer support", "Internal copilots", "Workflow automation"]
+    image: "/images/work-ai.jpg",
+    items: ["AI agents", "RAG knowledge bases", "Document AI", "AI support", "Internal copilots", "Workflow automation"]
   },
   {
     title: "SaaS & Product Development",
     text: "Launch-ready SaaS products with user accounts, subscriptions, admin dashboards, APIs, tenant logic, billing, and cloud deployment.",
     href: "/services/saas-and-product/saas-mvp-development",
+    image: "/images/work-saas.jpg",
     items: ["SaaS MVPs", "Multi-tenant SaaS", "Subscription platforms", "Admin dashboards", "Product scaling"]
   },
   {
     title: "Web & Mobile Applications",
     text: "Custom applications for businesses that need more than a website: dashboards, booking systems, portals, internal tools, marketplaces, and PWAs.",
+    image: "/images/work-design.jpg",
     items: ["Custom web apps", "Mobile apps", "PWAs", "Customer dashboards", "Booking platforms", "Marketplaces"]
   },
   {
     title: "Business Systems & Portals",
     text: "Secure operational systems for clients, staff, partners, and admins, built around roles, files, workflows, messages, and reporting.",
-    items: ["Client portals", "Internal tools", "Staff dashboards", "Operations systems", "CRM-like systems", "Project systems"]
+    image: "/images/office-interior.jpg",
+    items: ["Client portals", "Internal tools", "Staff dashboards", "Operations systems", "CRM-like systems"]
   },
   {
     title: "API & System Integration",
     text: "Connected software flows across CRMs, payments, email, calendars, spreadsheets, AI APIs, webhooks, dashboards, and custom systems.",
+    image: "/images/global-network.jpg",
     items: ["CRM integration", "Stripe and billing", "Google Workspace", "Webhooks", "Data sync", "Custom APIs"]
   },
   {
     title: "Data Engineering & Reporting",
     text: "Pipelines, scraping, ETL automation, analytics dashboards, automated reports, and AI summaries that turn scattered data into decisions.",
-    items: ["Data pipelines", "Web scraping", "ETL", "Business dashboards", "Automated reports", "Analytics systems"]
+    image: "/images/work-data.jpg",
+    items: ["Data pipelines", "Web scraping", "ETL", "Business dashboards", "Automated reports"]
   },
   {
     title: "Cloud, DevOps & Infrastructure",
     text: "Reliable deployment and backend foundations using cloud hosting, containers, CI/CD, monitoring, logging, performance work, and backups.",
+    image: "/images/work-cloud.jpg",
     items: ["AWS", "Vercel", "Docker", "CI/CD", "Monitoring", "Performance optimization"]
   },
   {
     title: "Security Engineering",
     text: "Security-aware development with authentication, role permissions, encrypted storage, secure APIs, audit logs, rate limits, and hardening.",
-    items: ["OAuth and JWT", "RBAC", "Secure APIs", "Audit logs", "Encryption", "Compliance-ready architecture"]
-  },
-  {
-    title: "UI/UX & Product Design",
-    text: "Product strategy, wireframes, user flows, interface design, design systems, clickable prototypes, and dashboard UX for real workflows.",
-    items: ["Product strategy", "Wireframes", "UI design", "UX flows", "Design systems", "Prototypes"]
-  },
-  {
-    title: "Maintenance & Growth",
-    text: "Long-term improvements, bug fixing, technical support, refactoring, modernization, feature expansion, and performance upgrades.",
-    items: ["Feature improvements", "Bug fixing", "Support", "Refactoring", "Modernization", "Long-term maintenance"]
+    image: "/images/work-security.jpg",
+    items: ["OAuth and JWT", "RBAC", "Secure APIs", "Audit logs", "Encryption", "Compliance-ready design"]
   }
 ];
 
 export const capabilityCards: Card[] = [
   {
     title: "AI Automation Systems",
-    text: "LLM agents, RAG pipelines, document processing, internal copilots, human approval steps, and AI-assisted workflows."
+    text: "LLM agents, RAG pipelines, document processing, internal copilots, human approval steps, and AI-assisted workflows.",
+    image: "/images/work-ai.jpg"
   },
   {
     title: "SaaS Platform Engineering",
-    text: "Accounts, dashboards, subscriptions, admin panels, APIs, databases, multi-tenant architecture, and launch workflows."
+    text: "Accounts, dashboards, subscriptions, admin panels, APIs, databases, multi-tenant architecture, and launch workflows.",
+    image: "/images/work-saas.jpg"
   },
   {
     title: "API & System Integration",
-    text: "CRM, payment, email, analytics, third-party APIs, webhooks, data synchronization, retries, validation, and logs."
+    text: "CRM, payment, email, analytics, third-party APIs, webhooks, data synchronization, retries, validation, and logs.",
+    image: "/images/global-network.jpg"
   },
   {
     title: "Secure Web Applications",
-    text: "Authentication, RBAC, encrypted storage, protected APIs, audit trails, permission boundaries, and secure file workflows."
+    text: "Authentication, RBAC, encrypted storage, protected APIs, audit trails, permission boundaries, and secure file workflows.",
+    image: "/images/work-security.jpg"
   },
   {
     title: "Cloud & Backend Systems",
-    text: "FastAPI, Node.js, PostgreSQL, Redis, Docker, AWS, Vercel, CI/CD, monitoring, and production deployment."
+    text: "FastAPI, Node.js, PostgreSQL, Redis, Docker, AWS, Vercel, CI/CD, monitoring, and production deployment.",
+    image: "/images/work-cloud.jpg"
   },
   {
     title: "Data Engineering & Reporting",
-    text: "ETL pipelines, scraping, scheduled jobs, dashboards, reporting automation, AI summaries, and analytics systems."
+    text: "ETL pipelines, scraping, scheduled jobs, dashboards, reporting automation, AI summaries, and analytics systems.",
+    image: "/images/work-data.jpg"
   }
 ];
 
@@ -162,28 +336,39 @@ export const demos: Card[] = [
 export const blueprints: Card[] = [
   {
     title: "Healthcare Workflow Automation",
-    text: "Secure form to database to AI classification to staff dashboard to notification workflow.",
+    text: "Secure intake form to database to AI classification to staff dashboard to notification workflow, with every access logged.",
+    image: "/images/work-security.jpg",
     items: ["Role-based access", "Audit logs", "Encrypted storage", "Admin controls"]
   },
   {
     title: "FinTech Reporting Dashboard",
-    text: "API integrations, backend data pipeline, real-time dashboard, secure reporting, exports, and alerts.",
+    text: "API integrations, backend data pipeline, real-time dashboard, secure reporting, exports, and threshold alerts.",
+    image: "/images/work-data.jpg",
     items: ["Data sync", "Secure APIs", "Reporting", "Monitoring"]
   },
   {
     title: "Agency Client Portal",
     text: "Client accounts, files, reports, approvals, project status, service dashboards, and staff admin workflows.",
-    items: ["Client portal", "White-label workflows", "Approvals", "Dashboards"]
+    image: "/images/office-interior.jpg",
+    items: ["Client portal", "White-label", "Approvals", "Dashboards"]
   },
   {
     title: "SaaS MVP Platform",
     text: "Accounts, product dashboard, subscription billing, tenant-ready data model, admin panel, and cloud deployment.",
+    image: "/images/work-saas.jpg",
     items: ["MVP scope", "Billing", "Admin dashboard", "Launch"]
   },
   {
-    title: "Local Business Booking + CRM",
+    title: "Operations Booking + CRM",
     text: "Booking flow, customer records, payment integration, reminders, staff dashboard, and follow-up automation.",
+    image: "/images/process-planning.jpg",
     items: ["Scheduling", "Payments", "CRM automation", "Notifications"]
+  },
+  {
+    title: "Knowledge Base Copilot",
+    text: "Company documents ingested, permissioned, indexed, and served as a cited internal assistant with an admin review queue.",
+    image: "/images/work-ai.jpg",
+    items: ["Ingestion", "Permissions", "Citations", "Review queue"]
   }
 ];
 
@@ -214,21 +399,48 @@ export const processSteps: Card[] = [
   }
 ];
 
-export const stack = [
+export const architecture: [string, string][] = [
+  ["Business Inputs", "Documents, CRM records, emails, forms, payments, spreadsheets, databases"],
+  ["Integration Layer", "APIs, webhooks, data sync, validation, retry logic, monitoring"],
+  ["AI / Automation Layer", "RAG, agents, classification, summarization, workflow rules, human approvals"],
+  ["Business Application", "Dashboard, portal, SaaS app, admin panel, reporting interface"],
+  ["Security & Monitoring", "Auth, RBAC, encryption, audit logs, alerts, backups, admin controls"]
+];
+
+export const stack: [string, string][] = [
   ["Frontend", "React, Next.js, TypeScript, Tailwind CSS, dashboard UI, portal interfaces"],
   ["Backend", "Python, FastAPI, Node.js, Express, Django, REST APIs, background jobs"],
-  ["AI Engineering", "OpenAI, Claude, LangChain, LangGraph, LlamaIndex, RAG, agents, embeddings"],
+  ["AI Engineering", "Claude, OpenAI, LangGraph, LlamaIndex, RAG, agents, embeddings, evaluations"],
   ["Data", "PostgreSQL, MySQL, MongoDB, Redis, Supabase, pgvector, ETL pipelines"],
   ["Cloud & DevOps", "AWS, Google Cloud, Azure, Vercel, Docker, CI/CD, monitoring, logging"],
-  ["Integrations", "Stripe, HubSpot, Salesforce, Google Workspace, Airtable, Notion, Slack, Twilio, Zapier, Make, n8n"],
-  ["Security", "OAuth, JWT, RBAC, encryption, secure APIs, audit logs, webhook verification, secrets management"],
-  ["Automation", "Workflow engines, scheduled jobs, webhooks, notifications, CRM automation, reporting automation"]
+  ["Integrations", "Stripe, HubSpot, Salesforce, Google Workspace, Slack, Twilio, Airtable, n8n"],
+  ["Security", "OAuth, JWT, RBAC, encryption, secure APIs, audit logs, secrets management"],
+  ["Automation", "Workflow engines, scheduled jobs, webhooks, notifications, reporting automation"]
+];
+
+export const marqueeItems = [
+  "Integrity",
+  "Next.js",
+  "Excellence",
+  "FastAPI",
+  "Innovation",
+  "Claude",
+  "PostgreSQL",
+  "AWS",
+  "Docker",
+  "RAG",
+  "LangGraph",
+  "TypeScript",
+  "Stripe",
+  "pgvector",
+  "Kubernetes",
+  "Terraform"
 ];
 
 const sections = (titles: string[], focus: string): Card[] =>
   titles.map((title) => ({
     title,
-    text: `${focus} This section explains the business problem, system design, core modules, implementation choices, security controls, delivery expectations, and how ReimeiTech turns the idea into production-ready software.`
+    text: `${focus} This section explains the business problem, system design, core modules, implementation choices, security controls, delivery expectations, and how maxIEI turns the idea into production-ready software.`
   }));
 
 export const servicePages: ServicePage[] = [
@@ -238,15 +450,14 @@ export const servicePages: ServicePage[] = [
     title: "AI Automation Systems",
     eyebrow: "Automate real work, not just demos",
     description:
-      "ReimeiTech builds AI-powered automation systems that process documents, route tasks, answer questions, generate reports, connect tools, and reduce repetitive manual operations.",
+      "maxIEI builds AI-powered automation systems that process documents, route tasks, answer questions, generate reports, connect tools, and reduce repetitive manual operations.",
     ctas: ["Start an AI Automation Project", "Book a Technical Consultation"],
     tags: ["AI workflows", "Document automation", "RAG", "Human approval", "Dashboards"],
     sections: sections(
       [
-        "Hero",
-        "Problem section",
+        "The problem",
         "What this service means",
-        "What ReimeiTech builds",
+        "What maxIEI builds",
         "Core features",
         "Use cases",
         "Architecture",
@@ -256,9 +467,7 @@ export const servicePages: ServicePage[] = [
         "Security and control",
         "Demo example",
         "Process",
-        "Related pages",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "AI automation systems combine business rules, AI models, APIs, dashboards, and human review steps."
     ),
@@ -275,7 +484,6 @@ export const servicePages: ServicePage[] = [
     tags: ["Research agents", "Support agents", "Operations agents", "Tool use", "Human approval"],
     sections: sections(
       [
-        "Hero",
         "What is an AI agent?",
         "Problems AI agents solve",
         "Types of AI agents we build",
@@ -288,9 +496,7 @@ export const servicePages: ServicePage[] = [
         "Demo example",
         "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "AI agents should support real workflows safely, with permissions, logs, approvals, and clear boundaries."
     ),
@@ -304,10 +510,9 @@ export const servicePages: ServicePage[] = [
     description:
       "Secure RAG knowledge systems that search documents, websites, PDFs, SOPs, FAQs, databases, and internal resources before generating source-backed answers.",
     ctas: ["Build a RAG Knowledge Base", "Book a Technical Consultation"],
-    tags: ["Document search", "Source citations", "Vector search", "Internal knowledge", "Customer support AI"],
+    tags: ["Document search", "Source citations", "Vector search", "Internal knowledge", "Support AI"],
     sections: sections(
       [
-        "Hero",
         "What is a RAG knowledge base?",
         "Problems this solves",
         "RAG systems we build",
@@ -315,18 +520,13 @@ export const servicePages: ServicePage[] = [
         "Architecture",
         "Use cases",
         "Knowledge sources",
-        "User experience",
         "Accuracy and source citations",
         "Security and permissions",
         "Admin dashboard",
         "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "A RAG knowledge base retrieves approved company content first, then answers with business-specific context and source control."
     ),
@@ -343,10 +543,9 @@ export const servicePages: ServicePage[] = [
     tags: ["Website chatbot", "Support chatbot", "Lead qualification", "CRM-connected", "Human handoff"],
     sections: sections(
       [
-        "Hero",
         "What is an AI chatbot?",
         "Problems AI chatbots solve",
-        "Types of AI chatbots ReimeiTech builds",
+        "Types of AI chatbots maxIEI builds",
         "Core chatbot features",
         "Chatbot architecture",
         "Use cases",
@@ -354,18 +553,12 @@ export const servicePages: ServicePage[] = [
         "Knowledge sources",
         "Integration",
         "Human handoff",
-        "Admin dashboard",
         "Security",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
-      "AI chatbots become useful when they are grounded in company knowledge, connected to tools, and designed for customer or staff workflows."
+      "AI chatbots become useful when they are grounded in company knowledge, connected to tools, and designed for real customer or staff workflows."
     ),
     related: aiRelated
   },
@@ -380,27 +573,20 @@ export const servicePages: ServicePage[] = [
     tags: ["PDF extraction", "Classification", "Summarization", "Validation", "Review queues"],
     sections: sections(
       [
-        "Hero",
         "What is Document AI?",
         "Problems Document AI solves",
-        "Document AI systems ReimeiTech builds",
+        "Document AI systems maxIEI builds",
         "Core features",
         "Document AI architecture",
         "Use cases",
         "Document types",
         "Human review and confidence",
         "Accuracy and validation",
-        "Admin dashboard",
         "Integrations",
         "Security",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Document AI turns unstructured files into structured data, summaries, routed tasks, and controlled business workflows."
     ),
@@ -417,29 +603,20 @@ export const servicePages: ServicePage[] = [
     tags: ["Ticket triage", "Reply suggestions", "Knowledge base", "Escalation", "Support analytics"],
     sections: sections(
       [
-        "Hero",
         "What is AI customer support?",
-        "Problems this page should address",
-        "AI customer support systems ReimeiTech builds",
+        "Problems this solves",
+        "AI support systems maxIEI builds",
         "Core features",
         "Support architecture",
         "Support channels",
         "Help desk and CRM integrations",
-        "Use cases",
-        "Customer-facing vs agent-assist support",
+        "Customer-facing vs agent-assist",
         "Human handoff and escalation",
-        "Knowledge base",
         "Support analytics",
-        "Admin dashboard",
         "Security and control",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "AI support should reduce repetitive work while preserving human oversight for unclear, sensitive, or high-value conversations."
     ),
@@ -456,28 +633,20 @@ export const servicePages: ServicePage[] = [
     tags: ["Automated reports", "AI summaries", "Dashboards", "Alerts", "Client reporting"],
     sections: sections(
       [
-        "Hero",
         "What is an AI reporting system?",
         "Problems AI reporting solves",
-        "AI reporting systems ReimeiTech builds",
+        "AI reporting systems maxIEI builds",
         "Core features",
         "AI reporting architecture",
         "Use cases",
         "Data sources",
         "Report formats",
-        "AI insight",
         "Alerts and anomaly detection",
-        "Admin dashboard",
         "Accuracy and review",
         "Security and permissions",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "AI reporting connects data pipelines, dashboards, natural-language summaries, and review controls."
     ),
@@ -491,13 +660,12 @@ export const servicePages: ServicePage[] = [
     description:
       "Internal AI copilots for company knowledge, operations, sales, support, HR, onboarding, reporting, and manager workflows.",
     ctas: ["Start an Internal Copilot Project", "Book a Technical Consultation"],
-    tags: ["Knowledge copilot", "Operations copilot", "Sales copilot", "HR onboarding", "Tool integrations"],
+    tags: ["Knowledge copilot", "Operations copilot", "Sales copilot", "HR onboarding", "Integrations"],
     sections: sections(
       [
-        "Hero",
         "What is an internal AI copilot?",
-        "Problems internal AI copilots solve",
-        "Internal AI copilots ReimeiTech builds",
+        "Problems internal copilots solve",
+        "Internal AI copilots maxIEI builds",
         "Core features",
         "Internal copilot architecture",
         "Use cases",
@@ -506,16 +674,9 @@ export const servicePages: ServicePage[] = [
         "Department-specific copilots",
         "Security and permissions",
         "Human control and governance",
-        "Admin dashboard",
-        "Productivity and business value",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Internal copilots work best when they understand company knowledge and can safely connect to tools used by each department."
     ),
@@ -529,32 +690,24 @@ export const servicePages: ServicePage[] = [
     description:
       "Workflow automation systems for lead intake, onboarding, approvals, notifications, data sync, CRM updates, reporting, and AI-assisted operations.",
     ctas: ["Start a Workflow Automation Project", "Book a Technical Consultation"],
-    tags: ["CRM automation", "Approval workflows", "Data sync", "Notifications", "AI-assisted workflows"],
+    tags: ["CRM automation", "Approval workflows", "Data sync", "Notifications", "AI-assisted flows"],
     sections: sections(
       [
-        "Hero",
         "What is workflow automation?",
         "Problems workflow automation solves",
-        "Workflow automation systems ReimeiTech builds",
+        "Workflow systems maxIEI builds",
         "Core features",
-        "Workflow automation architecture",
+        "Workflow architecture",
         "Use cases",
         "Workflow types",
-        "Tools and systems we can connect",
-        "Custom automation vs no-code automation",
+        "Tools and systems we connect",
+        "Custom vs no-code automation",
         "Human approval and control",
         "Error handling and reliability",
-        "Admin dashboard",
-        "Business value",
         "Security",
-        "Deliverables",
         "Technology",
-        "Demo example",
-        "Industries",
         "Build process",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Workflow automation connects triggers, APIs, AI steps, validation, dashboards, alerts, and exception handling."
     ),
@@ -566,35 +719,26 @@ export const servicePages: ServicePage[] = [
     title: "SaaS MVP Development",
     eyebrow: "Launch a focused SaaS product",
     description:
-      "ReimeiTech builds SaaS MVPs with accounts, dashboards, admin systems, subscriptions, APIs, integrations, secure deployment, and a clear product scope.",
+      "maxIEI builds SaaS MVPs with accounts, dashboards, admin systems, subscriptions, APIs, integrations, secure deployment, and a clear product scope.",
     ctas: ["Start a SaaS MVP Project", "Book a Product Build Call"],
     tags: ["SaaS MVP", "User accounts", "Admin dashboard", "Billing", "Cloud launch"],
     sections: sections(
       [
-        "Hero",
         "What is SaaS MVP development?",
-        "Problems this page should address",
-        "SaaS MVPs ReimeiTech can build",
+        "Problems this solves",
+        "SaaS MVPs maxIEI can build",
         "Core SaaS MVP features",
         "SaaS MVP architecture",
         "MVP scope",
         "SaaS user roles",
         "Dashboard sections",
-        "SaaS workflows",
         "AI-powered SaaS",
         "Integrations",
-        "Admin panel",
         "Security and permissions",
         "Deployment and launch",
-        "Deliverables",
         "Technology",
-        "Example SaaS MVP demo",
-        "Industries",
         "Build process",
-        "What this service is not",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "A SaaS MVP should prove the product workflow while including the backend, account, dashboard, admin, billing, and launch foundations."
     ),
@@ -611,12 +755,11 @@ export const servicePages: ServicePage[] = [
     tags: ["Tenant isolation", "Workspaces", "Platform admin", "Tenant admin", "White label"],
     sections: sections(
       [
-        "Hero",
         "What is multi-tenant SaaS?",
-        "Problems this page should address",
-        "Multi-tenant SaaS platforms ReimeiTech can build",
+        "Problems this solves",
+        "Platforms maxIEI can build",
         "Core multi-tenant features",
-        "Multi-tenant SaaS architecture",
+        "Multi-tenant architecture",
         "Tenant isolation",
         "Database design",
         "User roles and permissions",
@@ -624,19 +767,10 @@ export const servicePages: ServicePage[] = [
         "Tenant onboarding flow",
         "Subscription and billing",
         "White-label and tenant settings",
-        "AI multi-tenant SaaS",
         "Security",
-        "Multi-tenant dashboard sections",
-        "Integrations",
-        "Deliverables",
         "Technology",
-        "Example demo",
-        "Industries",
         "Build process",
-        "What this service is not",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Multi-tenant SaaS requires data isolation, role design, tenant-aware APIs, admin boundaries, billing logic, and secure file access."
     ),
@@ -653,32 +787,23 @@ export const servicePages: ServicePage[] = [
     tags: ["Stripe billing", "Plans", "Customer portal", "Usage limits", "Feature access"],
     sections: sections(
       [
-        "Hero",
         "What is a subscription platform?",
-        "Problems this page should address",
-        "Subscription platforms ReimeiTech can build",
-        "Core subscription platform features",
-        "Subscription platform architecture",
+        "Problems this solves",
+        "Platforms maxIEI can build",
+        "Core subscription features",
+        "Subscription architecture",
         "Subscription models",
-        "Pricing plan",
+        "Pricing plans",
         "Access control",
         "Customer billing portal",
-        "Admin subscription dashboard",
         "Stripe integration",
         "Billing lifecycle",
         "Failed payment and cancellation handling",
         "Usage limits and metering",
-        "Multi-tenant subscription support",
-        "Subscription platform security",
-        "Deliverables",
+        "Security",
         "Technology",
-        "Example subscription platform demo",
-        "Industries",
         "Build process",
-        "What this service is not",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Subscription platforms need more than checkout: they connect plan rules, access, invoices, webhooks, failures, upgrades, cancellations, and admin visibility."
     ),
@@ -695,11 +820,10 @@ export const servicePages: ServicePage[] = [
     tags: ["User management", "Permissions", "Data tables", "Reports", "Audit logs"],
     sections: sections(
       [
-        "Hero",
         "What is an admin dashboard?",
-        "Problems this page should address",
-        "Admin dashboards ReimeiTech can build",
-        "Core admin dashboard features",
+        "Problems this solves",
+        "Dashboards maxIEI can build",
+        "Core admin features",
         "Admin dashboard architecture",
         "Dashboard modules",
         "User and role management",
@@ -707,20 +831,11 @@ export const servicePages: ServicePage[] = [
         "Workflow and approval",
         "Analytics and reporting",
         "Activity logs and audit logs",
-        "Admin dashboard UI components",
         "Integrations",
         "Security",
-        "Admin dashboard for SaaS platforms",
-        "Admin dashboard for AI systems",
-        "Deliverables",
         "Technology",
-        "Example admin dashboard demo",
-        "Industries",
         "Build process",
-        "What this service is not",
-        "FAQ",
-        "Related services",
-        "Final CTA"
+        "FAQ"
       ],
       "Admin dashboards are operational control systems, not just charts. They need permissions, actions, logs, APIs, filters, exports, and secure workflows."
     ),
@@ -740,7 +855,6 @@ export const solutions: ServicePage[] = [
     tags: ["AI readiness", "Workflow audit", "ROI scoring", "Roadmap"],
     sections: sections(
       [
-        "Hero",
         "What is the AI Opportunity Sprint?",
         "Why this sprint matters",
         "Who this is for",
@@ -750,17 +864,12 @@ export const solutions: ServicePage[] = [
         "Opportunity scoring",
         "Deliverables",
         "What the final report includes",
-        "Example output",
         "What this sprint is not",
-        "When you should start with this sprint",
         "Technology and feasibility",
         "Security and governance",
-        "Recommended next-step projects",
+        "Recommended next steps",
         "Timeline",
-        "Call structure",
-        "Best-fit clients",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "This sprint turns AI curiosity into a prioritized, technically realistic plan."
     ),
@@ -777,7 +886,6 @@ export const solutions: ServicePage[] = [
     tags: ["Product scope", "MVP architecture", "SaaS features", "Launch plan"],
     sections: sections(
       [
-        "Hero",
         "What is the SaaS MVP Sprint?",
         "Why this sprint matters",
         "Who this is for",
@@ -788,17 +896,11 @@ export const solutions: ServicePage[] = [
         "Product flow",
         "Sprint process",
         "Deliverables",
-        "What the final MVP report includes",
-        "Example sprint outcome",
         "What this sprint is not",
         "Technical feasibility",
-        "AI-powered SaaS",
         "Security and SaaS readiness",
         "Timeline",
-        "Best-fit clients",
-        "Recommended next-step projects",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "This sprint converts rough SaaS ideas into feature scope, architecture, user flows, risks, and build phases."
     ),
@@ -815,8 +917,6 @@ export const solutions: ServicePage[] = [
     tags: ["Workflow X-Ray", "Bottleneck map", "Automation blueprint", "Tool audit"],
     sections: sections(
       [
-        "Hero",
-        "Page design style",
         "The main problem",
         "Workflow X-Ray",
         "What the sprint does",
@@ -829,10 +929,7 @@ export const solutions: ServicePage[] = [
         "What this sprint is not",
         "Sprint timeline",
         "Example sprint outcome",
-        "Unique page layout",
-        "Best page structure",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "This sprint makes messy operations visible before anyone writes automation code."
     ),
@@ -849,11 +946,9 @@ export const solutions: ServicePage[] = [
     tags: ["Client portal", "Staff portal", "File vault", "Audit logs"],
     sections: sections(
       [
-        "Hero",
         "What is the Secure Portal Starter?",
-        "Best design idea",
-        "Problems this page should address",
-        "What portals ReimeiTech can start from this foundation",
+        "Problems this solves",
+        "Portals maxIEI can start from this foundation",
         "Core starter features",
         "Advanced features you can add",
         "Portal architecture",
@@ -861,16 +956,10 @@ export const solutions: ServicePage[] = [
         "Before and after",
         "Use cases",
         "Security",
-        "Admin dashboard",
         "Integrations",
-        "Secure Portal Starter deliverables",
         "Starter vs full portal",
         "Timeline",
-        "Best-fit clients",
-        "What this starter is not",
-        "Demo example",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "A secure portal foundation reduces risk while giving teams a practical starting point for private software access."
     ),
@@ -887,28 +976,20 @@ export const solutions: ServicePage[] = [
     tags: ["Document upload", "Vector search", "Source citations", "Admin dashboard"],
     sections: sections(
       [
-        "Hero",
-        "Best design idea",
         "What is the RAG Knowledge Base Starter?",
-        "Problems this page should address",
+        "Problems this solves",
         "Knowledge sources",
         "Starter modules",
         "Core starter features",
         "Optional advanced features",
         "RAG architecture",
-        "Answer with sources",
+        "Answers with sources",
         "Use cases",
         "Before and after",
-        "Admin dashboard",
         "Security and permissions",
         "Starter vs full RAG platform",
-        "Deliverables",
         "Timeline",
-        "Example starter demo",
-        "Best-fit clients",
-        "What this starter is not",
-        "FAQ",
-        "Final CTA"
+        "FAQ"
       ],
       "This starter gives teams a usable AI knowledge assistant with source control and a path to grow."
     ),
@@ -918,12 +999,16 @@ export const solutions: ServicePage[] = [
 
 export const faqs: Card[] = [
   {
-    title: "What does ReimeiTech build?",
+    title: "What does maxIEI build?",
     text: "AI automation systems, SaaS platforms, custom web applications, admin dashboards, secure portals, API integrations, data pipelines, and cloud-ready backend systems."
   },
   {
+    title: "Where is the team based?",
+    text: "Headquarters is Austin, Texas. The engineering team works across seven countries — Japan, Mexico, Malaysia, the Philippines, France, Brazil, and the United States — which gives roughly sixteen hours of daily coverage."
+  },
+  {
     title: "Can you work with existing tools?",
-    text: "Yes. We can connect CRMs, Stripe, Google Workspace, help desks, email systems, spreadsheets, databases, AI APIs, and custom internal tools."
+    text: "Yes. We connect CRMs, Stripe, Google Workspace, help desks, email systems, spreadsheets, databases, AI APIs, and custom internal tools."
   },
   {
     title: "Do you only build AI chatbots?",
@@ -931,11 +1016,7 @@ export const faqs: Card[] = [
   },
   {
     title: "How do you handle security?",
-    text: "We plan authentication, permissions, encrypted storage, protected APIs, audit logs, secure file access, webhook verification, monitoring, and admin controls from the start."
-  },
-  {
-    title: "Can you build SaaS products with billing?",
-    text: "Yes. We can build user accounts, dashboards, subscriptions, Stripe billing, customer billing portals, admin controls, usage limits, and multi-tenant foundations."
+    text: "We plan authentication, permissions, encrypted storage, protected APIs, audit logs, secure file access, webhook verification, monitoring, and admin controls from the first architecture session."
   },
   {
     title: "What should I prepare before contacting you?",

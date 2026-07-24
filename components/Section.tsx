@@ -1,100 +1,84 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Card, ServicePage } from "@/lib/content";
+import { marqueeItems } from "@/lib/content";
 
-type HeroVideo = {
-  src: string;
-  label: string;
-};
+/* ---------- icon ---------- */
+
+export function Arrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ---------- hero video routing ---------- */
+
+type HeroVideo = { src: string; label: string };
 
 const heroVideos = {
-  ai: {
-    src: "/videos/programmer-workstation.mp4",
-    label: "Developer workstation with code and AI systems"
-  },
-  appDesign: {
-    src: "/videos/app-design-review.mp4",
-    label: "Product team reviewing app software design"
-  },
-  data: {
-    src: "/videos/data-reporting-desk.mp4",
-    label: "Business data reports and analytics on a desk"
-  },
-  infrastructure: {
-    src: "/videos/data-center-engineers.mp4",
-    label: "Engineers working in a data center"
-  },
-  planning: {
-    src: "/videos/product-planning-meeting.mp4",
-    label: "Team planning a technical product build"
-  },
-  teamwork: {
-    src: "/videos/team-laptop-help.mp4",
-    label: "Team collaborating around a laptop"
-  },
-  contact: {
-    src: "/videos/project-handshake.mp4",
-    label: "Business consultation and project handoff"
-  },
-  software: {
-    src: "/videos/software-development-laptop.mp4",
-    label: "Software developer working on a laptop"
-  }
+  ai: { src: "/videos/programmer-workstation.mp4", label: "Developer workstation running AI systems" },
+  appDesign: { src: "/videos/app-design-review.mp4", label: "Product team reviewing application design" },
+  data: { src: "/videos/data-reporting-desk.mp4", label: "Business data reports and analytics" },
+  infrastructure: { src: "/videos/data-center-engineers.mp4", label: "Engineers working in a data center" },
+  planning: { src: "/videos/product-planning-meeting.mp4", label: "Team planning a technical product build" },
+  teamwork: { src: "/videos/team-laptop-help.mp4", label: "Team collaborating around a laptop" },
+  contact: { src: "/videos/project-handshake.mp4", label: "Client consultation and project handoff" },
+  software: { src: "/videos/software-development-laptop.mp4", label: "Software engineer working on a laptop" }
 } satisfies Record<string, HeroVideo>;
 
 function selectHeroVideo(eyebrow: string, title: string): HeroVideo {
   const text = `${eyebrow} ${title}`.toLowerCase();
 
-  if (text.includes("contact") || text.includes("consultation") || text.includes("project consultation")) {
-    return heroVideos.contact;
-  }
-
-  if (text.includes("technology") || text.includes("cloud") || text.includes("security") || text.includes("api")) {
+  if (text.includes("contact") || text.includes("consultation") || text.includes("project")) return heroVideos.contact;
+  if (text.includes("company") || text.includes("team") || text.includes("about")) return heroVideos.teamwork;
+  if (text.includes("technology") || text.includes("cloud") || text.includes("security") || text.includes("api"))
     return heroVideos.infrastructure;
-  }
-
-  if (text.includes("report") || text.includes("dashboard") || text.includes("data") || text.includes("fintech")) {
+  if (text.includes("report") || text.includes("dashboard") || text.includes("data") || text.includes("blueprint"))
     return heroVideos.data;
-  }
-
-  if (text.includes("process") || text.includes("buildloop") || text.includes("sprint") || text.includes("case")) {
-    return heroVideos.planning;
-  }
-
-  if (text.includes("saas") || text.includes("product") || text.includes("app") || text.includes("portal")) {
+  if (text.includes("process") || text.includes("sprint") || text.includes("case")) return heroVideos.planning;
+  if (text.includes("saas") || text.includes("product") || text.includes("app") || text.includes("portal"))
     return heroVideos.appDesign;
-  }
-
-  if (text.includes("ai") || text.includes("automation") || text.includes("rag") || text.includes("document")) {
+  if (text.includes("ai") || text.includes("automation") || text.includes("rag") || text.includes("document"))
     return heroVideos.ai;
-  }
-
-  if (text.includes("demo") || text.includes("what we build") || text.includes("services")) {
-    return heroVideos.teamwork;
-  }
+  if (text.includes("demo") || text.includes("what we build") || text.includes("services")) return heroVideos.teamwork;
 
   return heroVideos.software;
 }
 
+/* ---------- section shell ---------- */
+
 export function Section({
+  num,
   kicker,
   title,
   intro,
   children,
-  alt = false
+  alt = false,
+  id
 }: {
+  num?: string;
   kicker?: string;
   title: string;
   intro?: string;
   children: React.ReactNode;
   alt?: boolean;
+  id?: string;
 }) {
   return (
-    <section className={`section${alt ? " alt" : ""}`}>
-      <div className="container">
-        <div className="section-head">
+    <section className={`sec${alt ? " sec-alt" : ""}`} id={id}>
+      <div className="wrap">
+        <div className="sec-head">
           <div>
-            {kicker ? <div className="kicker">{kicker}</div> : null}
-            <h2>{title}</h2>
+            {num || kicker ? (
+              <span className="sec-num">
+                {num ? <b>{num}</b> : null}
+                {num && kicker ? " — " : null}
+                {kicker}
+              </span>
+            ) : null}
+            <h2 className="sec-title">{title}</h2>
           </div>
           {intro ? <p className="lead">{intro}</p> : null}
         </div>
@@ -104,26 +88,49 @@ export function Section({
   );
 }
 
-export function CardGrid({ cards, columns = 3 }: { cards: Card[]; columns?: 2 | 3 | 4 }) {
+/* ---------- cards ---------- */
+
+export function CardGrid({
+  cards,
+  columns = 3,
+  media = false,
+  numbered = false
+}: {
+  cards: Card[];
+  columns?: 2 | 3 | 4;
+  media?: boolean;
+  numbered?: boolean;
+}) {
   return (
-    <div className={`grid grid-${columns}`}>
-      {cards.map((card) => {
+    <div className={`grid g${columns}`}>
+      {cards.map((card, i) => {
         const body = (
           <article className="card">
+            {media && card.image ? (
+              <div className="card-media">
+                <Image src={card.image} alt="" width={800} height={500} sizes="(max-width: 620px) 100vw, 33vw" />
+              </div>
+            ) : null}
+            {numbered ? <span className="card-index">{String(i + 1).padStart(2, "0")}</span> : null}
             <h3>{card.title}</h3>
             <p>{card.text}</p>
             {card.items ? (
-              <ul className="pill-list">
+              <ul className="pills">
                 {card.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             ) : null}
+            {card.href ? (
+              <span className="card-more">
+                Explore <Arrow />
+              </span>
+            ) : null}
           </article>
         );
 
         return card.href ? (
-          <Link key={card.title} href={card.href} aria-label={card.title}>
+          <Link className="card-link" key={card.title} href={card.href}>
             {body}
           </Link>
         ) : (
@@ -133,6 +140,109 @@ export function CardGrid({ cards, columns = 3 }: { cards: Card[]; columns?: 2 | 
     </div>
   );
 }
+
+/* ---------- marquee ---------- */
+
+export function Marquee() {
+  const items = [...marqueeItems, ...marqueeItems];
+  return (
+    <div className="marquee" aria-hidden="true">
+      <div className="marquee-track">
+        {items.map((item, i) => (
+          <span key={`${item}-${i}`}>{item}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- full-bleed media band ---------- */
+
+export function MediaBand({
+  video,
+  image,
+  kicker,
+  title,
+  text,
+  children
+}: {
+  video?: string;
+  image?: string;
+  kicker: string;
+  title: string;
+  text: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <section className="band">
+      {video ? (
+        <video className="band-media" autoPlay muted loop playsInline suppressHydrationWarning>
+          <source src={video} type="video/mp4" />
+        </video>
+      ) : image ? (
+        <Image className="band-media" src={image} alt="" fill sizes="100vw" />
+      ) : null}
+      <div className="wrap">
+        <div className="band-inner">
+          <span className="eyebrow mono">{kicker}</span>
+          <h2>{title}</h2>
+          <p className="lead">{text}</p>
+          {children}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- split media + copy ---------- */
+
+export function Split({
+  image,
+  video,
+  alt = "",
+  kicker,
+  title,
+  text,
+  points,
+  reverse = false
+}: {
+  image?: string;
+  video?: string;
+  alt?: string;
+  kicker: string;
+  title: string;
+  text: string;
+  points?: string[];
+  reverse?: boolean;
+}) {
+  return (
+    <div className={`split${reverse ? " reverse" : ""}`}>
+      <div className="split-media">
+        {video ? (
+          <video autoPlay muted loop playsInline suppressHydrationWarning aria-label={alt}>
+            <source src={video} type="video/mp4" />
+          </video>
+        ) : image ? (
+          <Image src={image} alt={alt} width={1000} height={750} sizes="(max-width: 900px) 100vw, 50vw" />
+        ) : null}
+      </div>
+      <div className="split-body">
+        <span className="eyebrow mono">{kicker}</span>
+        <h2>{title}</h2>
+        <p className="lead">{text}</p>
+        {points ? (
+          <ul className="checks">
+            {points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- page hero ---------- */
 
 export function PageHero({
   eyebrow,
@@ -150,28 +260,28 @@ export function PageHero({
   const video = selectHeroVideo(eyebrow, title);
 
   return (
-    <section className="page-hero">
-      <video className="page-hero-video" autoPlay muted loop playsInline aria-label={video.label}>
+    <section className="phero">
+      <video className="hero-media" autoPlay muted loop playsInline suppressHydrationWarning aria-label={video.label}>
         <source src={video.src} type="video/mp4" />
       </video>
-      <div className="container">
-        <div className="eyebrow">{eyebrow}</div>
+      <div className="wrap">
+        <span className="eyebrow mono">{eyebrow}</span>
         <h1>{title}</h1>
-        <p className="hero-copy">{description}</p>
+        <p className="lead">{description}</p>
         {ctas ? (
           <div className="hero-actions">
-            <Link className="button button-primary" href="/contact">
-              {ctas[0]}
+            <Link className="btn btn-primary" href="/contact">
+              {ctas[0]} <Arrow />
             </Link>
             {ctas[1] ? (
-              <Link className="button button-secondary" href="/what-we-build">
+              <Link className="btn btn-ghost" href="/what-we-build">
                 {ctas[1]}
               </Link>
             ) : null}
           </div>
         ) : null}
         {tags ? (
-          <div className="proof-strip">
+          <div className="tags">
             {tags.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
@@ -181,6 +291,42 @@ export function PageHero({
     </section>
   );
 }
+
+/* ---------- closing CTA ---------- */
+
+export function ClosingCTA({
+  kicker = "Start here",
+  title,
+  text,
+  label = "Request a technical consultation"
+}: {
+  kicker?: string;
+  title: string;
+  text: string;
+  label?: string;
+}) {
+  return (
+    <section className="cta">
+      <div className="wrap">
+        <span className="eyebrow mono" style={{ justifyContent: "center" }}>
+          {kicker}
+        </span>
+        <h2>{title}</h2>
+        <p className="lead">{text}</p>
+        <div className="hero-actions">
+          <Link className="btn btn-primary" href="/contact">
+            {label} <Arrow />
+          </Link>
+          <Link className="btn btn-ghost" href="/what-we-build">
+            See what we build
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- service detail page ---------- */
 
 export function ServicePageView({ page }: { page: ServicePage }) {
   return (
@@ -192,28 +338,35 @@ export function ServicePageView({ page }: { page: ServicePage }) {
         ctas={page.ctas}
         tags={page.tags}
       />
-      <section className="section">
-        <div className="container numbered section-list">
+      <Section num="01" kicker="Scope" title="What this engagement covers" intro="Each area below is scoped, estimated, and reviewed before a single line of production code is written.">
+        <div className="svc-list">
           {page.sections.map((section) => (
-            <article className="service-section card" key={section.title}>
-              <h2>{section.title}</h2>
-              <p>{section.text}</p>
+            <article className="svc-item" key={section.title}>
+              <div>
+                <h2>{section.title}</h2>
+                <p>{section.text}</p>
+              </div>
             </article>
           ))}
         </div>
-      </section>
+      </Section>
       <Section
         alt
+        num="02"
         kicker="Related"
-        title={page.category.includes("SaaS") ? "Related SaaS & Product Services" : "Related AI & Automation Services"}
-        intro="Explore adjacent pages when the project needs a larger system than one isolated feature."
+        title={page.category.includes("SaaS") ? "Related SaaS & product services" : "Related AI & automation services"}
+        intro="Most engagements need more than one of these. We scope the system, not the feature."
       >
-        <div className="proof-strip">
+        <div className="tags">
           {page.related.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </div>
       </Section>
+      <ClosingCTA
+        title="Ready to scope this properly?"
+        text="Tell us what is manual, slow, disconnected, or risky today. We will map it into an architecture you can actually build."
+      />
     </main>
   );
 }

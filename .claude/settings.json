@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\company website\"; \\(Get-Content package-lock.json -Raw\\) -replace 'reimeitech-company-website','maxiei-company-website' | Set-Content package-lock.json -Encoding utf8 -NoNewline; npm run build 2>&1 | Select-Object -Last 60)",
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\company website\"; $c = Get-Content package-lock.json -Raw; $c = $c -replace \"^\\\\uFEFF\",\"\"; [System.IO.File]::WriteAllText\\(\"d:\\\\Projects\\\\company website\\\\package-lock.json\", $c, \\(New-Object System.Text.UTF8Encoding $false\\)\\); $bytes = [System.IO.File]::ReadAllBytes\\(\"d:\\\\Projects\\\\company website\\\\package-lock.json\"\\)[0..2]; \"first bytes: $bytes\")"
+    ]
+  }
+}
