@@ -1,5 +1,5 @@
 import { CardGrid, ClosingCTA, MediaBand, PageHero, Section } from "@/components/Section";
-import { buildCategories, capabilityCards, demos, processSteps, stack } from "@/lib/content";
+import { buildCategories, capabilityCards, demos, processSteps, stack, videos } from "@/lib/content";
 
 export const metadata = {
   title: "What We Build",
@@ -16,6 +16,8 @@ export default function WhatWeBuildPage() {
         description="maxIEI builds AI applications, SaaS platforms, portals, APIs, dashboards, automation, data systems, cloud infrastructure, and the security foundations underneath all of it."
         ctas={["Start a project", "View the Demo Lab"]}
         tags={["AI", "SaaS", "Portals", "APIs", "Data", "Cloud", "Security", "Design"]}
+        video={videos.appDesignReview}
+        videoLabel="Product team reviewing application design"
       />
 
       <Section
@@ -28,7 +30,7 @@ export default function WhatWeBuildPage() {
       </Section>
 
       <MediaBand
-        video="/videos/app-design-review.mp4"
+        video={videos.aiCoding}
         kicker="Excellence"
         title="Every build is reviewed before it ships."
         text="Architecture review, code review, security review, and an evaluation pass on any AI component. The standard is the same regardless of project size."

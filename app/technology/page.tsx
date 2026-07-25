@@ -1,5 +1,5 @@
 import { ClosingCTA, PageHero, Section, Split } from "@/components/Section";
-import { stack } from "@/lib/content";
+import { stack, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Technology",
@@ -16,6 +16,8 @@ export default function TechnologyPage() {
         description="Technology serves the architecture, not the pitch deck: fast interfaces, reliable APIs, secure data, practical AI, connected tools, and deployment a team can actually maintain."
         ctas={["Discuss a technical project", "Explore what we build"]}
         tags={["React", "Next.js", "FastAPI", "Claude", "PostgreSQL", "AWS", "Docker", "RBAC"]}
+        video={videos.circuitProcessor}
+        videoLabel="High tech circuit board with processor"
       />
 
       <Section

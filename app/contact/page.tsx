@@ -1,5 +1,5 @@
 import { Arrow, PageHero, Section } from "@/components/Section";
-import { hq, team } from "@/lib/content";
+import { hq, team, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Start a Project",
@@ -17,6 +17,8 @@ export default function ContactPage() {
         title="Tell us what you want to build, automate, or integrate."
         description="Share the workflow, the tools you already use, who needs access, and what is sensitive. We will come back with an honest technical direction — including whether we think you should build it at all."
         tags={["AI", "SaaS", "Dashboards", "Portals", "API integration", "Automation", "Security"]}
+        video={videos.handshake}
+        videoLabel="Client consultation and project handoff"
       />
 
       <Section

@@ -11,7 +11,8 @@ import {
   hq,
   processSteps,
   stack,
-  values
+  values,
+  videos
 } from "@/lib/content";
 
 const heroStats: [string, string][] = [
@@ -41,7 +42,7 @@ export default function HomePage() {
       {/* ---------- hero ---------- */}
       <section className="hero">
         <video className="hero-media" autoPlay muted loop playsInline suppressHydrationWarning>
-          <source src="/videos/software-development-laptop.mp4" type="video/mp4" />
+          <source src={videos.softwareLaptop} type="video/mp4" />
         </video>
         <div className="hero-grid" />
         <div className="wrap">
@@ -114,7 +115,7 @@ export default function HomePage() {
 
       {/* ---------- global team band ---------- */}
       <MediaBand
-        video="/videos/team-laptop-help.mp4"
+        video={videos.teamReview}
         kicker="One team, seven countries"
         title="An American CEO, a Japanese CTO, and engineers on four continents."
         text="Distributed is not a compromise here — it is the design. Work moves from Tokyo to Kuala Lumpur to Manila to Lyon to São Paulo to Austin, which means your project is rarely asleep and never dependent on one person being awake."
@@ -204,7 +205,7 @@ export default function HomePage() {
 
       {/* ---------- demo lab band ---------- */}
       <MediaBand
-        video="/videos/programmer-workstation.mp4"
+        video={videos.innovationAbstract}
         kicker="Innovation in practice"
         title="Proof of thinking, not marketing claims."
         text="Our Demo Lab holds working internal builds that show how we connect AI, data, APIs, dashboards, admin tools, and secure workflows — before you commit to a production engagement."

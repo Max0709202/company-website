@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CardGrid, ClosingCTA, PageHero, Section, ServicePageView } from "@/components/Section";
-import { buildCategories, serviceBySlug, servicePages } from "@/lib/content";
+import { buildCategories, serviceBySlug, servicePages, videos } from "@/lib/content";
 
 export async function generateStaticParams() {
   return servicePages.map((page) => ({ slug: page.slug.split("/") }));
@@ -29,6 +29,8 @@ export default async function ServicesPage({ params }: { params: Promise<{ slug?
           description="Detailed service pages across AI automation, SaaS, portals, APIs, data, cloud, security, design, and long-term support."
           ctas={["Start a project", "View the Demo Lab"]}
           tags={["AI", "SaaS", "APIs", "Dashboards", "Portals", "Security"]}
+          video={videos.serverRoom}
+          videoLabel="Fiber optics in a server room"
         />
         <Section
           num="01"

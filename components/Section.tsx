@@ -249,20 +249,27 @@ export function PageHero({
   title,
   description,
   ctas,
-  tags
+  tags,
+  video,
+  videoLabel
 }: {
   eyebrow: string;
   title: string;
   description: string;
   ctas?: string[];
   tags?: string[];
+  /** First-view clip for this page. Falls back to a keyword match when omitted. */
+  video?: string;
+  videoLabel?: string;
 }) {
-  const video = selectHeroVideo(eyebrow, title);
+  const fallback = selectHeroVideo(eyebrow, title);
+  const src = video ?? fallback.src;
+  const label = videoLabel ?? (video ? `${title} — background footage` : fallback.label);
 
   return (
     <section className="phero">
-      <video className="hero-media" autoPlay muted loop playsInline suppressHydrationWarning aria-label={video.label}>
-        <source src={video.src} type="video/mp4" />
+      <video className="hero-media" autoPlay muted loop playsInline suppressHydrationWarning aria-label={label}>
+        <source src={src} type="video/mp4" />
       </video>
       <div className="wrap">
         <span className="eyebrow mono">{eyebrow}</span>
@@ -337,6 +344,7 @@ export function ServicePageView({ page }: { page: ServicePage }) {
         description={page.description}
         ctas={page.ctas}
         tags={page.tags}
+        video={page.video}
       />
       <Section num="01" kicker="Scope" title="What this engagement covers" intro="Each area below is scoped, estimated, and reviewed before a single line of production code is written.">
         <div className="svc-list">

@@ -1,5 +1,5 @@
 import { CardGrid, ClosingCTA, PageHero, Section, Split } from "@/components/Section";
-import { architecture, processSteps } from "@/lib/content";
+import { architecture, processSteps, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Process",
@@ -16,6 +16,8 @@ export default function ProcessPage() {
         description="We map the problem, design the architecture, build the system, validate real workflows, launch securely, and keep improving based on how the software is actually used."
         ctas={["Start with a workflow map", "View capabilities"]}
         tags={["Discovery", "Architecture", "Development", "Testing", "Launch", "Support"]}
+        video={videos.planningMeeting}
+        videoLabel="Team planning a technical product build"
       />
 
       <Section
@@ -35,8 +37,8 @@ export default function ProcessPage() {
         intro="Every stage produces an artifact you own — a map, a spec, a running system, a test report, a deployment, a changelog. Progress is never a status update alone."
       >
         <Split
-          video="/videos/product-planning-meeting.mp4"
-          alt="Team planning a technical product build"
+          video={videos.teamReview}
+          alt="Team reviewing delivery milestones together"
           kicker="Integrity in delivery"
           title="Honest scoping, including the parts you will not like."
           text="If a request is a bad idea, too expensive for the value, or better solved by software you can buy off the shelf, we say so during scoping rather than after invoicing."

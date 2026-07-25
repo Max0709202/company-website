@@ -16,7 +16,35 @@ export type ServicePage = {
   tags: string[];
   sections: Card[];
   related: string[];
+  /** First-view hero clip, chosen to match this page's subject. */
+  video: string;
 };
+
+/* ============================================================
+   Video library
+   Every first view (FV) gets a clip chosen for that page's
+   subject — see videos/README.md for sources and licensing.
+   ============================================================ */
+
+export const videos = {
+  /* people & process */
+  softwareLaptop: "/videos/software-development-laptop.mp4",
+  programmerWorkstation: "/videos/programmer-workstation.mp4",
+  appDesignReview: "/videos/app-design-review.mp4",
+  planningMeeting: "/videos/product-planning-meeting.mp4",
+  teamLaptop: "/videos/team-laptop-help.mp4",
+  teamReview: "/videos/team-review.mp4",
+  handshake: "/videos/project-handshake.mp4",
+  dataReporting: "/videos/data-reporting-desk.mp4",
+  /* machines & code */
+  aiCodeStream: "/videos/ai-code-stream.mp4",
+  aiCoding: "/videos/ai-coding.mp4",
+  innovationAbstract: "/videos/innovation-abstract.mp4",
+  circuitProcessor: "/videos/circuit-processor.mp4",
+  serverRoom: "/videos/server-room.mp4",
+  dataCenter: "/videos/data-center-engineers.mp4",
+  securityHacker: "/videos/security-hacker.mp4"
+} as const;
 
 /* ============================================================
    Brand
@@ -446,6 +474,7 @@ const sections = (titles: string[], focus: string): Card[] =>
 export const servicePages: ServicePage[] = [
   {
     slug: "ai-and-automation/ai-automation-systems",
+    video: videos.aiCodeStream,
     category: "AI & Automation",
     title: "AI Automation Systems",
     eyebrow: "Automate real work, not just demos",
@@ -475,6 +504,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-agents",
+    video: videos.innovationAbstract,
     category: "AI & Automation",
     title: "AI Agents",
     eyebrow: "Goal-driven AI with tool access",
@@ -504,6 +534,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/rag-knowledge-bases",
+    video: videos.aiCoding,
     category: "AI & Automation",
     title: "RAG Knowledge Bases",
     eyebrow: "Answers from your own knowledge",
@@ -534,6 +565,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-chatbots",
+    video: videos.teamLaptop,
     category: "AI & Automation",
     title: "AI Chatbots",
     eyebrow: "Business conversations connected to data",
@@ -564,6 +596,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/document-ai",
+    video: videos.dataReporting,
     category: "AI & Automation",
     title: "Document AI",
     eyebrow: "Extract, classify, summarize, and route documents",
@@ -594,6 +627,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-customer-support",
+    video: videos.handshake,
     category: "AI & Automation",
     title: "AI Customer Support",
     eyebrow: "Faster support with human escalation",
@@ -624,6 +658,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-reporting-systems",
+    video: videos.circuitProcessor,
     category: "AI & Automation",
     title: "AI Reporting Systems",
     eyebrow: "Reports that explain what changed",
@@ -654,6 +689,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/internal-ai-copilots",
+    video: videos.programmerWorkstation,
     category: "AI & Automation",
     title: "Internal AI Copilots",
     eyebrow: "AI assistance inside your team workflows",
@@ -684,6 +720,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/workflow-automation",
+    video: videos.planningMeeting,
     category: "AI & Automation",
     title: "Workflow Automation",
     eyebrow: "Replace repeated handoffs with reliable flows",
@@ -715,6 +752,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/saas-mvp-development",
+    video: videos.appDesignReview,
     category: "SaaS & Product",
     title: "SaaS MVP Development",
     eyebrow: "Launch a focused SaaS product",
@@ -746,6 +784,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/multi-tenant-saas",
+    video: videos.serverRoom,
     category: "SaaS & Product",
     title: "Multi-Tenant SaaS",
     eyebrow: "One product, many organizations, safe boundaries",
@@ -778,6 +817,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/subscription-platforms",
+    video: videos.teamReview,
     category: "SaaS & Product",
     title: "Subscription Platforms",
     eyebrow: "Recurring revenue connected to product access",
@@ -811,6 +851,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/admin-dashboards",
+    video: videos.softwareLaptop,
     category: "SaaS & Product",
     title: "Admin Dashboards",
     eyebrow: "A private control center for software operations",
@@ -846,6 +887,7 @@ export const servicePages: ServicePage[] = [
 export const solutions: ServicePage[] = [
   {
     slug: "ai-opportunity-sprint",
+    video: videos.innovationAbstract,
     category: "Solutions",
     title: "AI Opportunity Sprint",
     eyebrow: "Find the AI opportunity worth building first",
@@ -877,6 +919,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "saas-mvp-sprint",
+    video: videos.appDesignReview,
     category: "Solutions",
     title: "SaaS MVP Sprint",
     eyebrow: "Turn a product idea into a buildable MVP plan",
@@ -908,6 +951,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "workflow-automation-sprint",
+    video: videos.planningMeeting,
     category: "Solutions",
     title: "Workflow Automation Sprint",
     eyebrow: "Find the workflow worth automating first",
@@ -937,6 +981,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "secure-portal-starter",
+    video: videos.securityHacker,
     category: "Solutions",
     title: "Secure Portal Starter",
     eyebrow: "Start with a safe portal foundation",
@@ -967,6 +1012,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "rag-knowledge-base-starter",
+    video: videos.aiCoding,
     category: "Solutions",
     title: "RAG Knowledge Base Starter",
     eyebrow: "Turn knowledge into an AI assistant",

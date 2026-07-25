@@ -1,5 +1,5 @@
 import { CardGrid, ClosingCTA, PageHero, Section } from "@/components/Section";
-import { blueprints } from "@/lib/content";
+import { blueprints, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Blueprints",
@@ -16,6 +16,8 @@ export default function CaseStudiesPage() {
         description="Most of our client work sits under NDA. Rather than publish vague success metrics we cannot evidence, we publish the architecture: the problem, the system design, the modules, the security layer, and the business outcome."
         ctas={["Discuss a similar system", "View the Demo Lab"]}
         tags={["Healthcare", "FinTech", "Agencies", "SaaS", "Operations", "Knowledge AI"]}
+        video={videos.dataReporting}
+        videoLabel="Reviewing data and reports on a desk"
       />
 
       <Section

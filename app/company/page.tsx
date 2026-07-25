@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ClosingCTA, PageHero, Section, Split } from "@/components/Section";
-import { brand, hq, team, teamStats, values } from "@/lib/content";
+import { brand, hq, team, teamStats, values, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Company",
@@ -16,6 +16,8 @@ export default function CompanyPage() {
         description={`${brand.name} is an international AI software company. Headquarters in ${hq.label}; senior engineers in Japan, Mexico, Malaysia, the Philippines, France, and Brazil. Small enough that you speak to the people building it, distributed enough that the work rarely stops.`}
         ctas={["Talk to the team", "See what we build"]}
         tags={["Founded " + brand.founded, hq.label, "7 countries", "100% senior"]}
+        video={videos.teamLaptop}
+        videoLabel="Team collaborating around a laptop"
       />
 
       {/* ---------- vision ---------- */}
