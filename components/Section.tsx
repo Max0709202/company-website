@@ -13,40 +13,6 @@ export function Arrow() {
   );
 }
 
-/* ---------- hero video routing ---------- */
-
-type HeroVideo = { src: string; label: string };
-
-const heroVideos = {
-  ai: { src: "/videos/programmer-workstation.mp4", label: "Developer workstation running AI systems" },
-  appDesign: { src: "/videos/app-design-review.mp4", label: "Product team reviewing application design" },
-  data: { src: "/videos/data-reporting-desk.mp4", label: "Business data reports and analytics" },
-  infrastructure: { src: "/videos/data-center-engineers.mp4", label: "Engineers working in a data center" },
-  planning: { src: "/videos/product-planning-meeting.mp4", label: "Team planning a technical product build" },
-  teamwork: { src: "/videos/team-laptop-help.mp4", label: "Team collaborating around a laptop" },
-  contact: { src: "/videos/project-handshake.mp4", label: "Client consultation and project handoff" },
-  software: { src: "/videos/software-development-laptop.mp4", label: "Software engineer working on a laptop" }
-} satisfies Record<string, HeroVideo>;
-
-function selectHeroVideo(eyebrow: string, title: string): HeroVideo {
-  const text = `${eyebrow} ${title}`.toLowerCase();
-
-  if (text.includes("contact") || text.includes("consultation") || text.includes("project")) return heroVideos.contact;
-  if (text.includes("company") || text.includes("team") || text.includes("about")) return heroVideos.teamwork;
-  if (text.includes("technology") || text.includes("cloud") || text.includes("security") || text.includes("api"))
-    return heroVideos.infrastructure;
-  if (text.includes("report") || text.includes("dashboard") || text.includes("data") || text.includes("blueprint"))
-    return heroVideos.data;
-  if (text.includes("process") || text.includes("sprint") || text.includes("case")) return heroVideos.planning;
-  if (text.includes("saas") || text.includes("product") || text.includes("app") || text.includes("portal"))
-    return heroVideos.appDesign;
-  if (text.includes("ai") || text.includes("automation") || text.includes("rag") || text.includes("document"))
-    return heroVideos.ai;
-  if (text.includes("demo") || text.includes("what we build") || text.includes("services")) return heroVideos.teamwork;
-
-  return heroVideos.software;
-}
-
 /* ---------- section shell ---------- */
 
 export function Section({
@@ -258,18 +224,22 @@ export function PageHero({
   description: string;
   ctas?: string[];
   tags?: string[];
-  /** First-view clip for this page. Falls back to a keyword match when omitted. */
-  video?: string;
+  /** First-view clip for this page — a distinct file per page, no reuse. */
+  video: string;
   videoLabel?: string;
 }) {
-  const fallback = selectHeroVideo(eyebrow, title);
-  const src = video ?? fallback.src;
-  const label = videoLabel ?? (video ? `${title} — background footage` : fallback.label);
-
   return (
     <section className="phero">
-      <video className="hero-media" autoPlay muted loop playsInline suppressHydrationWarning aria-label={label}>
-        <source src={src} type="video/mp4" />
+      <video
+        className="hero-media"
+        autoPlay
+        muted
+        loop
+        playsInline
+        suppressHydrationWarning
+        aria-label={videoLabel ?? `${title} — background footage`}
+      >
+        <source src={video} type="video/mp4" />
       </video>
       <div className="wrap">
         <span className="eyebrow mono">{eyebrow}</span>
@@ -362,7 +332,7 @@ export function ServicePageView({ page }: { page: ServicePage }) {
         alt
         num="02"
         kicker="Related"
-        title={page.category.includes("SaaS") ? "Related SaaS & product services" : "Related AI & automation services"}
+        title={`Related ${page.category} services`}
         intro="Most engagements need more than one of these. We scope the system, not the feature."
       >
         <div className="tags">

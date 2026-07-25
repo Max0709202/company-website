@@ -16,7 +16,7 @@ export default function WhatWeBuildPage() {
         description="maxIEI builds AI applications, SaaS platforms, portals, APIs, dashboards, automation, data systems, cloud infrastructure, and the security foundations underneath all of it."
         ctas={["Start a project", "View the Demo Lab"]}
         tags={["AI", "SaaS", "Portals", "APIs", "Data", "Cloud", "Security", "Design"]}
-        video={videos.appDesignReview}
+        video={videos.whatWeBuildHero}
         videoLabel="Product team reviewing application design"
       />
 
@@ -30,7 +30,7 @@ export default function WhatWeBuildPage() {
       </Section>
 
       <MediaBand
-        video={videos.aiCoding}
+        video={videos.whatWeBuildBand}
         kicker="Excellence"
         title="Every build is reviewed before it ships."
         text="Architecture review, code review, security review, and an evaluation pass on any AI component. The standard is the same regardless of project size."

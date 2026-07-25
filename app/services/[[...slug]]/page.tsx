@@ -29,7 +29,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ slug?
           description="Detailed service pages across AI automation, SaaS, portals, APIs, data, cloud, security, design, and long-term support."
           ctas={["Start a project", "View the Demo Lab"]}
           tags={["AI", "SaaS", "APIs", "Dashboards", "Portals", "Security"]}
-          video={videos.serverRoom}
+          video={videos.servicesHero}
           videoLabel="Fiber optics in a server room"
         />
         <Section

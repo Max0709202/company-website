@@ -16,7 +16,7 @@ export default function CaseStudiesPage() {
         description="Most of our client work sits under NDA. Rather than publish vague success metrics we cannot evidence, we publish the architecture: the problem, the system design, the modules, the security layer, and the business outcome."
         ctas={["Discuss a similar system", "View the Demo Lab"]}
         tags={["Healthcare", "FinTech", "Agencies", "SaaS", "Operations", "Knowledge AI"]}
-        video={videos.dataReporting}
+        video={videos.blueprintsHero}
         videoLabel="Reviewing data and reports on a desk"
       />
 

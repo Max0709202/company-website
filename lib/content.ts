@@ -26,24 +26,58 @@ export type ServicePage = {
    subject — see videos/README.md for sources and licensing.
    ============================================================ */
 
+/**
+ * Every entry maps to a DISTINCT file used in exactly ONE place across the
+ * whole site — no clip is reused. Keys are named for their slot, so a grep
+ * for a key shows its single call site.
+ */
 export const videos = {
-  /* people & process */
-  softwareLaptop: "/videos/software-development-laptop.mp4",
-  programmerWorkstation: "/videos/programmer-workstation.mp4",
-  appDesignReview: "/videos/app-design-review.mp4",
-  planningMeeting: "/videos/product-planning-meeting.mp4",
-  teamLaptop: "/videos/team-laptop-help.mp4",
-  teamReview: "/videos/team-review.mp4",
-  handshake: "/videos/project-handshake.mp4",
-  dataReporting: "/videos/data-reporting-desk.mp4",
-  /* machines & code */
-  aiCodeStream: "/videos/ai-code-stream.mp4",
-  aiCoding: "/videos/ai-coding.mp4",
-  innovationAbstract: "/videos/innovation-abstract.mp4",
-  circuitProcessor: "/videos/circuit-processor.mp4",
-  serverRoom: "/videos/server-room.mp4",
-  dataCenter: "/videos/data-center-engineers.mp4",
-  securityHacker: "/videos/security-hacker.mp4"
+  /* --- top-level page heroes & bands (15) --- */
+  homeHero: "/videos/software-development-laptop.mp4",
+  homeTeamBand: "/videos/team-review.mp4",
+  homeInnovationBand: "/videos/innovation-abstract.mp4",
+  whatWeBuildHero: "/videos/app-design-review.mp4",
+  whatWeBuildBand: "/videos/ai-coding.mp4",
+  companyHero: "/videos/team-laptop-help.mp4",
+  demoLabHero: "/videos/programmer-workstation.mp4",
+  demoLabBand: "/videos/ai-code-stream.mp4",
+  blueprintsHero: "/videos/data-reporting-desk.mp4",
+  processHero: "/videos/product-planning-meeting.mp4",
+  processSplit: "/videos/team-meeting-table.mp4",
+  servicesHero: "/videos/server-room.mp4",
+  technologyHero: "/videos/circuit-processor.mp4",
+  technologySplit: "/videos/data-center-engineers.mp4",
+  contactHero: "/videos/project-handshake.mp4",
+
+  /* --- AI & Automation service pages (9) --- */
+  svcAiAutomation: "/videos/net-signals.mp4",
+  svcAiAgents: "/videos/net-animation.mp4",
+  svcRag: "/videos/net-nodes.mp4",
+  svcChatbots: "/videos/chat-messaging.mp4",
+  svcDocumentAi: "/videos/data-transfer.mp4",
+  svcCustomerSupport: "/videos/office-professional.mp4",
+  svcReporting: "/videos/charts-presenter.mp4",
+  svcCopilots: "/videos/office-team.mp4",
+  svcWorkflow: "/videos/flow-lines.mp4",
+
+  /* --- SaaS & Product service pages (4) --- */
+  svcSaasMvp: "/videos/macbook-build.mp4",
+  svcMultiTenant: "/videos/cloud-data.mp4",
+  svcSubscriptions: "/videos/online-checkout.mp4",
+  svcAdminDashboards: "/videos/market-dashboard.mp4",
+
+  /* --- the four new "explore" category pages (4) --- */
+  svcWebMobile: "/videos/dev-hands-code.mp4",
+  svcPortals: "/videos/business-meeting.mp4",
+  svcApiIntegration: "/videos/trade-network.mp4",
+  svcDataEngineering: "/videos/cloud-processing.mp4",
+
+  /* --- solution accelerator pages (5) --- */
+  solAiSprint: "/videos/sphere-dots.mp4",
+  solSaasSprint: "/videos/tablet-browse.mp4",
+  solWorkflowSprint: "/videos/net-shapes.mp4",
+  solSecurePortal: "/videos/security-hacker.mp4",
+  solRagStarter: "/videos/research-computer.mp4"
 } as const;
 
 /* ============================================================
@@ -237,6 +271,50 @@ const saasRelated = [
   "API Integration"
 ];
 
+const webRelated = [
+  "Custom Web Applications",
+  "Mobile Apps",
+  "Progressive Web Apps",
+  "Customer Dashboards",
+  "Booking Platforms",
+  "Marketplaces",
+  "Internal Tools",
+  "API Integration"
+];
+
+const portalRelated = [
+  "Client Portals",
+  "Staff Dashboards",
+  "Operations Systems",
+  "Partner Portals",
+  "Document Vaults",
+  "CRM-like Systems",
+  "Admin Dashboards",
+  "Secure Portal Starter"
+];
+
+const apiRelated = [
+  "System Integration",
+  "CRM Integration",
+  "Payment & Billing",
+  "Webhooks & Events",
+  "Data Synchronization",
+  "Custom APIs",
+  "Workflow Automation",
+  "Google Workspace"
+];
+
+const dataRelated = [
+  "Data Engineering",
+  "ETL Pipelines",
+  "Web Scraping",
+  "Business Dashboards",
+  "Automated Reports",
+  "Analytics Systems",
+  "AI Reporting Systems",
+  "Data Warehousing"
+];
+
 export const buildCategories: Card[] = [
   {
     title: "AI & Automation",
@@ -255,24 +333,28 @@ export const buildCategories: Card[] = [
   {
     title: "Web & Mobile Applications",
     text: "Custom applications for businesses that need more than a website: dashboards, booking systems, portals, internal tools, marketplaces, and PWAs.",
+    href: "/services/web-and-mobile/custom-applications",
     image: "/images/work-design.jpg",
     items: ["Custom web apps", "Mobile apps", "PWAs", "Customer dashboards", "Booking platforms", "Marketplaces"]
   },
   {
     title: "Business Systems & Portals",
     text: "Secure operational systems for clients, staff, partners, and admins, built around roles, files, workflows, messages, and reporting.",
+    href: "/services/business-systems/client-and-staff-portals",
     image: "/images/office-interior.jpg",
     items: ["Client portals", "Internal tools", "Staff dashboards", "Operations systems", "CRM-like systems"]
   },
   {
     title: "API & System Integration",
     text: "Connected software flows across CRMs, payments, email, calendars, spreadsheets, AI APIs, webhooks, dashboards, and custom systems.",
+    href: "/services/api-and-integration/system-integration",
     image: "/images/global-network.jpg",
     items: ["CRM integration", "Stripe and billing", "Google Workspace", "Webhooks", "Data sync", "Custom APIs"]
   },
   {
     title: "Data Engineering & Reporting",
     text: "Pipelines, scraping, ETL automation, analytics dashboards, automated reports, and AI summaries that turn scattered data into decisions.",
+    href: "/services/data-and-reporting/data-engineering",
     image: "/images/work-data.jpg",
     items: ["Data pipelines", "Web scraping", "ETL", "Business dashboards", "Automated reports"]
   },
@@ -474,7 +556,7 @@ const sections = (titles: string[], focus: string): Card[] =>
 export const servicePages: ServicePage[] = [
   {
     slug: "ai-and-automation/ai-automation-systems",
-    video: videos.aiCodeStream,
+    video: videos.svcAiAutomation,
     category: "AI & Automation",
     title: "AI Automation Systems",
     eyebrow: "Automate real work, not just demos",
@@ -504,7 +586,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-agents",
-    video: videos.innovationAbstract,
+    video: videos.svcAiAgents,
     category: "AI & Automation",
     title: "AI Agents",
     eyebrow: "Goal-driven AI with tool access",
@@ -534,7 +616,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/rag-knowledge-bases",
-    video: videos.aiCoding,
+    video: videos.svcRag,
     category: "AI & Automation",
     title: "RAG Knowledge Bases",
     eyebrow: "Answers from your own knowledge",
@@ -565,7 +647,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-chatbots",
-    video: videos.teamLaptop,
+    video: videos.svcChatbots,
     category: "AI & Automation",
     title: "AI Chatbots",
     eyebrow: "Business conversations connected to data",
@@ -596,7 +678,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/document-ai",
-    video: videos.dataReporting,
+    video: videos.svcDocumentAi,
     category: "AI & Automation",
     title: "Document AI",
     eyebrow: "Extract, classify, summarize, and route documents",
@@ -627,7 +709,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-customer-support",
-    video: videos.handshake,
+    video: videos.svcCustomerSupport,
     category: "AI & Automation",
     title: "AI Customer Support",
     eyebrow: "Faster support with human escalation",
@@ -658,7 +740,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/ai-reporting-systems",
-    video: videos.circuitProcessor,
+    video: videos.svcReporting,
     category: "AI & Automation",
     title: "AI Reporting Systems",
     eyebrow: "Reports that explain what changed",
@@ -689,7 +771,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/internal-ai-copilots",
-    video: videos.programmerWorkstation,
+    video: videos.svcCopilots,
     category: "AI & Automation",
     title: "Internal AI Copilots",
     eyebrow: "AI assistance inside your team workflows",
@@ -720,7 +802,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "ai-and-automation/workflow-automation",
-    video: videos.planningMeeting,
+    video: videos.svcWorkflow,
     category: "AI & Automation",
     title: "Workflow Automation",
     eyebrow: "Replace repeated handoffs with reliable flows",
@@ -752,7 +834,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/saas-mvp-development",
-    video: videos.appDesignReview,
+    video: videos.svcSaasMvp,
     category: "SaaS & Product",
     title: "SaaS MVP Development",
     eyebrow: "Launch a focused SaaS product",
@@ -784,7 +866,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/multi-tenant-saas",
-    video: videos.serverRoom,
+    video: videos.svcMultiTenant,
     category: "SaaS & Product",
     title: "Multi-Tenant SaaS",
     eyebrow: "One product, many organizations, safe boundaries",
@@ -817,7 +899,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/subscription-platforms",
-    video: videos.teamReview,
+    video: videos.svcSubscriptions,
     category: "SaaS & Product",
     title: "Subscription Platforms",
     eyebrow: "Recurring revenue connected to product access",
@@ -851,7 +933,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "saas-and-product/admin-dashboards",
-    video: videos.softwareLaptop,
+    video: videos.svcAdminDashboards,
     category: "SaaS & Product",
     title: "Admin Dashboards",
     eyebrow: "A private control center for software operations",
@@ -881,13 +963,142 @@ export const servicePages: ServicePage[] = [
       "Admin dashboards are operational control systems, not just charts. They need permissions, actions, logs, APIs, filters, exports, and secure workflows."
     ),
     related: saasRelated
+  },
+  {
+    slug: "web-and-mobile/custom-applications",
+    video: videos.svcWebMobile,
+    category: "Web & Mobile",
+    title: "Web & Mobile Applications",
+    eyebrow: "More than a website — a working application",
+    description:
+      "maxIEI builds custom web and mobile applications: dashboards, booking systems, customer portals, internal tools, marketplaces, and progressive web apps that work on any device.",
+    ctas: ["Start an Application Project", "Book a Product Build Call"],
+    tags: ["Custom web apps", "Mobile apps", "PWAs", "Dashboards", "Booking systems", "Marketplaces"],
+    sections: sections(
+      [
+        "What we build",
+        "Problems this solves",
+        "Application types maxIEI builds",
+        "Core application features",
+        "Web application architecture",
+        "Mobile and PWA approach",
+        "Customer dashboards",
+        "Booking and scheduling systems",
+        "Marketplaces and multi-user apps",
+        "Offline and performance",
+        "Integrations",
+        "Security and accounts",
+        "Technology",
+        "Build process",
+        "FAQ"
+      ],
+      "A custom application is a real product with accounts, data, workflows, and interfaces — not a brochure site with extra pages."
+    ),
+    related: webRelated
+  },
+  {
+    slug: "business-systems/client-and-staff-portals",
+    video: videos.svcPortals,
+    category: "Business Systems",
+    title: "Business Systems & Portals",
+    eyebrow: "Secure operational systems for real teams",
+    description:
+      "maxIEI builds client portals, staff dashboards, partner systems, and internal operations tools around roles, files, workflows, messages, approvals, and reporting.",
+    ctas: ["Start a Portal Project", "Book a Systems Planning Call"],
+    tags: ["Client portals", "Staff dashboards", "Operations systems", "Roles & permissions", "Audit logs"],
+    sections: sections(
+      [
+        "What is a business system or portal?",
+        "Problems this solves",
+        "Portals and systems maxIEI builds",
+        "Core portal features",
+        "Portal architecture",
+        "Roles and permissions",
+        "File exchange and document vaults",
+        "Workflows and approvals",
+        "Messaging and notifications",
+        "Operations and reporting",
+        "Admin controls",
+        "Security and audit logs",
+        "Technology",
+        "Build process",
+        "FAQ"
+      ],
+      "A portal is a private, permissioned workspace where clients, staff, and partners do real work — safely and with a full audit trail."
+    ),
+    related: portalRelated
+  },
+  {
+    slug: "api-and-integration/system-integration",
+    video: videos.svcApiIntegration,
+    category: "API & Integration",
+    title: "API & System Integration",
+    eyebrow: "Make disconnected tools work as one system",
+    description:
+      "maxIEI connects CRMs, payments, email, calendars, spreadsheets, AI APIs, webhooks, and custom systems into reliable flows with validation, retries, and monitoring.",
+    ctas: ["Start an Integration Project", "Book an Integration Audit"],
+    tags: ["CRM integration", "Payments", "Webhooks", "Data sync", "Custom APIs", "Monitoring"],
+    sections: sections(
+      [
+        "What is system integration?",
+        "Problems this solves",
+        "Integrations maxIEI builds",
+        "Core integration features",
+        "Integration architecture",
+        "Custom API development",
+        "Webhooks and event handling",
+        "Data synchronization",
+        "Validation and error handling",
+        "Retries and reliability",
+        "Monitoring and alerting",
+        "Security and secrets",
+        "Technology",
+        "Build process",
+        "FAQ"
+      ],
+      "System integration is the connective tissue: APIs, webhooks, sync jobs, validation, and monitoring that keep separate tools acting like one system."
+    ),
+    related: apiRelated
+  },
+  {
+    slug: "data-and-reporting/data-engineering",
+    video: videos.svcDataEngineering,
+    category: "Data & Reporting",
+    title: "Data Engineering & Reporting",
+    eyebrow: "Turn scattered data into decisions",
+    description:
+      "maxIEI builds data pipelines, scraping and ETL automation, analytics dashboards, automated reports, and AI summaries that turn scattered data into clear decisions.",
+    ctas: ["Start a Data Project", "Book a Data Strategy Call"],
+    tags: ["Data pipelines", "ETL", "Web scraping", "Dashboards", "Automated reports", "AI summaries"],
+    sections: sections(
+      [
+        "What is data engineering and reporting?",
+        "Problems this solves",
+        "Data systems maxIEI builds",
+        "Core data features",
+        "Data architecture",
+        "Data sources and ingestion",
+        "ETL and pipelines",
+        "Web scraping and collection",
+        "Warehousing and modeling",
+        "Business dashboards",
+        "Automated and scheduled reports",
+        "AI summaries and anomaly detection",
+        "Security and data governance",
+        "Technology",
+        "Build process",
+        "FAQ"
+      ],
+      "Good reporting starts upstream: clean pipelines, a sound data model, and validation before anything reaches a dashboard or an AI summary."
+    ),
+    related: dataRelated
   }
 ];
 
 export const solutions: ServicePage[] = [
   {
     slug: "ai-opportunity-sprint",
-    video: videos.innovationAbstract,
+    video: videos.solAiSprint,
     category: "Solutions",
     title: "AI Opportunity Sprint",
     eyebrow: "Find the AI opportunity worth building first",
@@ -919,7 +1130,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "saas-mvp-sprint",
-    video: videos.appDesignReview,
+    video: videos.solSaasSprint,
     category: "Solutions",
     title: "SaaS MVP Sprint",
     eyebrow: "Turn a product idea into a buildable MVP plan",
@@ -951,7 +1162,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "workflow-automation-sprint",
-    video: videos.planningMeeting,
+    video: videos.solWorkflowSprint,
     category: "Solutions",
     title: "Workflow Automation Sprint",
     eyebrow: "Find the workflow worth automating first",
@@ -981,7 +1192,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "secure-portal-starter",
-    video: videos.securityHacker,
+    video: videos.solSecurePortal,
     category: "Solutions",
     title: "Secure Portal Starter",
     eyebrow: "Start with a safe portal foundation",
@@ -1012,7 +1223,7 @@ export const solutions: ServicePage[] = [
   },
   {
     slug: "rag-knowledge-base-starter",
-    video: videos.aiCoding,
+    video: videos.solRagStarter,
     category: "Solutions",
     title: "RAG Knowledge Base Starter",
     eyebrow: "Turn knowledge into an AI assistant",

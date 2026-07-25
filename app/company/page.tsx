@@ -16,7 +16,7 @@ export default function CompanyPage() {
         description={`${brand.name} is an international AI software company. Headquarters in ${hq.label}; senior engineers in Japan, Mexico, Malaysia, the Philippines, France, and Brazil. Small enough that you speak to the people building it, distributed enough that the work rarely stops.`}
         ctas={["Talk to the team", "See what we build"]}
         tags={["Founded " + brand.founded, hq.label, "7 countries", "100% senior"]}
-        video={videos.teamLaptop}
+        video={videos.companyHero}
         videoLabel="Team collaborating around a laptop"
       />
 

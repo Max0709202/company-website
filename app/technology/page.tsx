@@ -16,7 +16,7 @@ export default function TechnologyPage() {
         description="Technology serves the architecture, not the pitch deck: fast interfaces, reliable APIs, secure data, practical AI, connected tools, and deployment a team can actually maintain."
         ctas={["Discuss a technical project", "Explore what we build"]}
         tags={["React", "Next.js", "FastAPI", "Claude", "PostgreSQL", "AWS", "Docker", "RBAC"]}
-        video={videos.circuitProcessor}
+        video={videos.technologyHero}
         videoLabel="High tech circuit board with processor"
       />
 
@@ -44,7 +44,7 @@ export default function TechnologyPage() {
         intro="We are deliberately conservative about what enters the stack and deliberately aggressive about evaluating what could improve it."
       >
         <Split
-          video="/videos/data-center-engineers.mp4"
+          video={videos.technologySplit}
           alt="Engineers working in a data center"
           kicker="Innovation with judgement"
           title="New does not automatically mean better."

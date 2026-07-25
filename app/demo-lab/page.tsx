@@ -16,12 +16,12 @@ export default function DemoLabPage() {
         description="The Demo Lab is where we build for ourselves. Each demo shows how maxIEI connects data, AI, workflows, admin controls, security layers, and user interfaces into a pattern we can adapt to your business."
         ctas={["Start a project", "Explore capabilities"]}
         tags={["Document AI", "SaaS dashboard", "Secure portal", "CRM automation", "API monitor", "AI reporting"]}
-        video={videos.programmerWorkstation}
+        video={videos.demoLabHero}
         videoLabel="Developer building at a workstation"
       />
 
       <MediaBand
-        video={videos.aiCodeStream}
+        video={videos.demoLabBand}
         kicker="Why this exists"
         title="Judge the engineering before you sign anything."
         text="Slide decks are easy. Running systems are not. Everything here is something we built and maintain ourselves, which means we can walk you through the code, the failure modes, and the parts we would do differently."
