@@ -116,7 +116,7 @@ export default function HomePage() {
       {/* ---------- global team band ---------- */}
       <MediaBand
         video={videos.homeTeamBand}
-        kicker="One team, seven countries"
+        kicker="One team, six countries"
         title="An American CEO, a Japanese CTO, and engineers on four continents."
         text="Distributed is not a compromise here — it is the design. Work moves from Tokyo to Kuala Lumpur to Manila to Lyon to São Paulo to Austin, which means your project is rarely asleep and never dependent on one person being awake."
       >

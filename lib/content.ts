@@ -149,23 +149,25 @@ export const values: Value[] = [
 ];
 
 /* ============================================================
-   Team — an eight-person company across seven countries.
-   Nicknames are used publicly; full names are shared on engagement.
+   Team — an eight-person company across six countries.
+   Full names are published; portraits live in /public/images/team.
    ============================================================ */
 
 export type Person = {
-  nickname: string;
+  name: string;
   role: string;
   location: string;
   flag: string;
   bio: string;
   hue: string;
   hue2: string;
+  /** Portrait in /public/images/team. Falls back to the initial avatar when absent. */
+  photo?: string;
 };
 
 export const team: Person[] = [
   {
-    nickname: "Max",
+    name: "Jonathan Edwards",
     role: "Chief Executive Officer",
     location: "Austin, United States",
     flag: "🇺🇸",
@@ -174,7 +176,7 @@ export const team: Person[] = [
     hue2: "#57b8ff"
   },
   {
-    nickname: "Kenji",
+    name: "Noriaki Nishida",
     role: "Chief Technology Officer",
     location: "Tokyo, Japan",
     flag: "🇯🇵",
@@ -183,44 +185,17 @@ export const team: Person[] = [
     hue2: "#57b8ff"
   },
   {
-    nickname: "Rafa",
-    role: "Lead AI Engineer",
-    location: "Guadalajara, Mexico",
-    flag: "🇲🇽",
-    bio: "Builds the retrieval pipelines, agent graphs, and evaluation harnesses behind our AI work. Treats every model output as something that has to be measured, not trusted.",
-    hue: "#5af0c8",
-    hue2: "#ffc46b"
-  },
-  {
-    nickname: "Amir",
-    role: "Backend & Platform Engineer",
-    location: "Kuala Lumpur, Malaysia",
-    flag: "🇲🇾",
-    bio: "Designs the APIs, data models, and job systems everything else stands on. Has a long-running grudge against any endpoint that fails quietly.",
-    hue: "#57b8ff",
-    hue2: "#8c7cff"
-  },
-  {
-    nickname: "Jom",
-    role: "Full-Stack Engineer",
+    name: "Eugene Seva",
+    role: "Marketing Specialist & Developer",
     location: "Manila, Philippines",
     flag: "🇵🇭",
-    bio: "Moves between product UI and backend services daily. Turns rough workflow sketches into interfaces the client's team actually wants to open on a Monday.",
+    bio: "Runs positioning, content, and campaigns \u2014 then builds the pages and tracking behind them. The rare marketer who ships his own landing pages and reads the analytics he instrumented.",
     hue: "#ffc46b",
     hue2: "#5af0c8"
   },
   {
-    nickname: "Bea",
-    role: "Frontend & Design Engineer",
-    location: "Cebu, Philippines",
-    flag: "🇵🇭",
-    bio: "Owns the design system, accessibility, and the last five percent of polish. Argues — usually successfully — that a confusing dashboard is a broken dashboard.",
-    hue: "#8c7cff",
-    hue2: "#ffc46b"
-  },
-  {
-    nickname: "Luc",
-    role: "Security & DevOps Engineer",
+    name: "Ekaterina Merkulova",
+    role: "Developer",
     location: "Lyon, France",
     flag: "🇫🇷",
     bio: "Runs infrastructure, CI/CD, monitoring, and the threat model. Reviews every permission boundary before a system is allowed near real customer data.",
@@ -228,18 +203,45 @@ export const team: Person[] = [
     hue2: "#5af0c8"
   },
   {
-    nickname: "Tico",
-    role: "Data Engineer",
-    location: "São Paulo, Brazil",
+    name: "Leandro Barcelos",
+    role: "Developer",
+    location: "S\u00e3o Paulo, Brazil",
     flag: "🇧🇷",
     bio: "Builds the pipelines, warehouses, and reporting layers that make the rest of the stack useful. Believes most AI problems are actually data problems wearing a costume.",
     hue: "#ffc46b",
+    hue2: "#8c7cff"
+  },
+  {
+    name: "Ryoji Nagasawa",
+    role: "Developer",
+    location: "Osaka, Japan",
+    flag: "🇯🇵",
+    bio: "Builds the retrieval pipelines, agent graphs, and evaluation harnesses behind our AI work. Treats every model output as something that has to be measured, not trusted.",
+    hue: "#5af0c8",
+    hue2: "#ffc46b"
+  },
+  {
+    name: "Carmela Flores",
+    role: "Developer",
+    location: "Cebu, Philippines",
+    flag: "🇵🇭",
+    bio: "Owns the design system, accessibility, and the last five percent of polish. Argues \u2014 usually successfully \u2014 that a confusing dashboard is a broken dashboard.",
+    hue: "#8c7cff",
+    hue2: "#ffc46b"
+  },
+  {
+    name: "Robert Eng",
+    role: "Developer",
+    location: "Kuala Lumpur, Malaysia",
+    flag: "🇲🇾",
+    bio: "Designs the APIs, data models, and job systems everything else stands on. Has a long-running grudge against any endpoint that fails quietly.",
+    hue: "#57b8ff",
     hue2: "#8c7cff"
   }
 ];
 
 export const teamStats = [
-  ["7", "countries"],
+  ["6", "countries"],
   ["16h", "engineering coverage per day"],
   ["1", "shared code standard"],
   ["100%", "senior engineers"]
@@ -1261,7 +1263,7 @@ export const faqs: Card[] = [
   },
   {
     title: "Where is the team based?",
-    text: "Headquarters is Austin, Texas. The engineering team works across seven countries — Japan, Mexico, Malaysia, the Philippines, France, Brazil, and the United States — which gives roughly sixteen hours of daily coverage."
+    text: "Headquarters is Austin, Texas. The engineering team works across six countries — Japan, Malaysia, the Philippines, France, Brazil, and the United States — which gives roughly sixteen hours of daily coverage."
   },
   {
     title: "Can you work with existing tools?",

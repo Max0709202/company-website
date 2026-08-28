@@ -118,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Logo />
                 <p>
                   An international AI software company headquartered in {hq.city}, {hq.state}, with engineers across
-                  seven countries. We build trusted AI solutions with uncompromising quality.
+                  six countries. We build trusted AI solutions with uncompromising quality.
                 </p>
               </div>
               {footerCols.map(([heading, links]) => (

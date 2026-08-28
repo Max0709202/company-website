@@ -7,7 +7,9 @@ export const metadata = {
     "Contact maxIEI for AI automation, SaaS development, API integration, dashboards, secure portals, and custom software projects."
 };
 
-const coverage = team.map((person) => `${person.flag} ${person.location.split(",")[1]?.trim()}`);
+const coverage = Array.from(
+  new Map(team.map((person) => [person.location.split(",")[1]?.trim(), `${person.flag} ${person.location.split(",")[1]?.trim()}`])).values()
+);
 
 export default function ContactPage() {
   return (

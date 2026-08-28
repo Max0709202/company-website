@@ -4,7 +4,7 @@ import { brand, hq, team, teamStats, values, videos } from "@/lib/content";
 
 export const metadata = {
   title: "Company",
-  description: `${brand.name} is an international AI software company headquartered in ${hq.label}, with senior engineers across seven countries. Integrity, Excellence, Innovation.`
+  description: `${brand.name} is an international AI software company headquartered in ${hq.label}, with senior engineers across six countries. Integrity, Excellence, Innovation.`
 };
 
 export default function CompanyPage() {
@@ -13,9 +13,9 @@ export default function CompanyPage() {
       <PageHero
         eyebrow="Company"
         title="An eight-person company that works like a much larger one."
-        description={`${brand.name} is an international AI software company. Headquarters in ${hq.label}; senior engineers in Japan, Mexico, Malaysia, the Philippines, France, and Brazil. Small enough that you speak to the people building it, distributed enough that the work rarely stops.`}
+        description={`${brand.name} is an international AI software company. Headquarters in ${hq.label}; senior engineers in Japan, Malaysia, the Philippines, France, and Brazil. Small enough that you speak to the people building it, distributed enough that the work rarely stops.`}
         ctas={["Talk to the team", "See what we build"]}
-        tags={["Founded " + brand.founded, hq.label, "7 countries", "100% senior"]}
+        tags={["Founded " + brand.founded, hq.label, "6 countries", "100% senior"]}
         video={videos.companyHero}
         videoLabel="Team collaborating around a laptop"
       />
@@ -88,25 +88,36 @@ export default function CompanyPage() {
       <Section
         num="03"
         kicker="The team"
-        title="Eight people. Seven countries."
-        intro="We publish nicknames rather than full legal names — the people here work under NDA across a lot of client environments. Full introductions come with the first call."
+        title="Eight people. Six countries."
+        intro="Every name here is a person you will actually work with — the one who scopes your project is the one who builds it. Full introductions come with the first call."
         id="team"
       >
         <div className="team">
           {team.map((person) => (
             <article
               className="person"
-              key={person.nickname}
+              key={person.name}
               style={{ ["--hue" as string]: person.hue, ["--hue2" as string]: person.hue2 }}
             >
               <div className="avatar">
-                <span className="avatar-initial">{person.nickname.charAt(0)}</span>
+                {person.photo ? (
+                  <Image
+                    className="avatar-photo"
+                    src={person.photo}
+                    alt={`${person.name}, ${person.role}`}
+                    width={480}
+                    height={480}
+                    sizes="(max-width: 900px) 46vw, 22vw"
+                  />
+                ) : (
+                  <span className="avatar-initial">{person.name.charAt(0)}</span>
+                )}
                 <span className="avatar-flag" role="img" aria-label={person.location}>
                   {person.flag}
                 </span>
               </div>
               <div style={{ display: "grid", gap: 6 }}>
-                <span className="person-name">{person.nickname}</span>
+                <span className="person-name">{person.name}</span>
                 <span className="person-role">{person.role}</span>
                 <span className="person-loc">{person.location}</span>
               </div>
