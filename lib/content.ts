@@ -173,7 +173,8 @@ export const team: Person[] = [
     flag: "🇺🇸",
     bio: "Sets company direction and owns every client relationship end to end. Spent a decade shipping enterprise platforms before founding maxIEI around a single rule: promise less, deliver more.",
     hue: "#5af0c8",
-    hue2: "#57b8ff"
+    hue2: "#57b8ff",
+    photo: "/images/team/jonathan-edwards.jpg"
   },
   {
     name: "Noriaki Nishida",
@@ -182,7 +183,8 @@ export const team: Person[] = [
     flag: "🇯🇵",
     bio: "Owns architecture, engineering standards, and technical review. Believes a system is only finished when the next engineer can understand it without asking a question.",
     hue: "#8c7cff",
-    hue2: "#57b8ff"
+    hue2: "#57b8ff",
+    photo: "/images/team/noriaki-nishida.jpg"
   },
   {
     name: "Eugene Seva",
@@ -191,7 +193,8 @@ export const team: Person[] = [
     flag: "🇵🇭",
     bio: "Runs positioning, content, and campaigns \u2014 then builds the pages and tracking behind them. The rare marketer who ships his own landing pages and reads the analytics he instrumented.",
     hue: "#ffc46b",
-    hue2: "#5af0c8"
+    hue2: "#5af0c8",
+    photo: "/images/team/eugene-seva.jpg"
   },
   {
     name: "Ekaterina Merkulova",
@@ -200,16 +203,18 @@ export const team: Person[] = [
     flag: "🇫🇷",
     bio: "Runs infrastructure, CI/CD, monitoring, and the threat model. Reviews every permission boundary before a system is allowed near real customer data.",
     hue: "#57b8ff",
-    hue2: "#5af0c8"
+    hue2: "#5af0c8",
+    photo: "/images/team/ekaterina-merkulova.jpg"
   },
   {
     name: "Leandro Barcelos",
     role: "Developer",
-    location: "S\u00e3o Paulo, Brazil",
+    location: "São Paulo, Brazil",
     flag: "🇧🇷",
     bio: "Builds the pipelines, warehouses, and reporting layers that make the rest of the stack useful. Believes most AI problems are actually data problems wearing a costume.",
     hue: "#ffc46b",
-    hue2: "#8c7cff"
+    hue2: "#8c7cff",
+    photo: "/images/team/leandro-barcelos.jpg"
   },
   {
     name: "Ryoji Nagasawa",
@@ -218,7 +223,8 @@ export const team: Person[] = [
     flag: "🇯🇵",
     bio: "Builds the retrieval pipelines, agent graphs, and evaluation harnesses behind our AI work. Treats every model output as something that has to be measured, not trusted.",
     hue: "#5af0c8",
-    hue2: "#ffc46b"
+    hue2: "#ffc46b",
+    photo: "/images/team/ryoji-nagasawa.jpg"
   },
   {
     name: "Carmela Flores",
@@ -227,7 +233,8 @@ export const team: Person[] = [
     flag: "🇵🇭",
     bio: "Owns the design system, accessibility, and the last five percent of polish. Argues \u2014 usually successfully \u2014 that a confusing dashboard is a broken dashboard.",
     hue: "#8c7cff",
-    hue2: "#ffc46b"
+    hue2: "#ffc46b",
+    photo: "/images/team/carmela-flores.jpg"
   },
   {
     name: "Robert Eng",
@@ -236,7 +243,8 @@ export const team: Person[] = [
     flag: "🇲🇾",
     bio: "Designs the APIs, data models, and job systems everything else stands on. Has a long-running grudge against any endpoint that fails quietly.",
     hue: "#57b8ff",
-    hue2: "#8c7cff"
+    hue2: "#8c7cff",
+    photo: "/images/team/robert-eng.jpg"
   }
 ];
 
