@@ -118,7 +118,7 @@ export default function HomePage() {
         video={videos.homeTeamBand}
         kicker="One team, six countries"
         title="An American CEO, a Japanese CTO, and engineers on four continents."
-        text="Distributed is not a compromise here — it is the design. Work moves from Tokyo to Kuala Lumpur to Manila to Lyon to São Paulo to Austin, which means your project is rarely asleep and never dependent on one person being awake."
+        text="Distributed is not a compromise here — it is the design. Work moves from Tottori to Johor to Negros to Ivry-sur-Seine to Rio de Janeiro to Austin, which means your project is rarely asleep and never dependent on one person being awake."
       >
         <div className="hero-actions">
           <Link className="btn btn-ghost" href="/company#team">
@@ -267,7 +267,7 @@ export default function HomePage() {
           points={[
             `${hq.district}`,
             "US entity, US contracts, US-based client ownership",
-            "Engineering coverage from Tokyo through to Austin",
+            "Engineering coverage from Tottori through to Austin",
             "Escalation path that does not depend on office hours"
           ]}
         />

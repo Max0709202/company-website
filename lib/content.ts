@@ -178,7 +178,7 @@ export const team: Person[] = [
   {
     name: "Noriaki Nishida",
     role: "Chief Technology Officer",
-    location: "Tokyo, Japan",
+    location: "Tottori, Japan",
     flag: "🇯🇵",
     bio: "Owns architecture, engineering standards, and technical review. Believes a system is only finished when the next engineer can understand it without asking a question.",
     hue: "#8c7cff",
@@ -187,7 +187,7 @@ export const team: Person[] = [
   {
     name: "Eugene Seva",
     role: "Marketing Specialist & Developer",
-    location: "Manila, Philippines",
+    location: "Negros, Philippines",
     flag: "🇵🇭",
     bio: "Runs positioning, content, and campaigns \u2014 then builds the pages and tracking behind them. The rare marketer who ships his own landing pages and reads the analytics he instrumented.",
     hue: "#ffc46b",
@@ -196,7 +196,7 @@ export const team: Person[] = [
   {
     name: "Ekaterina Merkulova",
     role: "Developer",
-    location: "Lyon, France",
+    location: "Ivry-sur-Seine, France",
     flag: "🇫🇷",
     bio: "Runs infrastructure, CI/CD, monitoring, and the threat model. Reviews every permission boundary before a system is allowed near real customer data.",
     hue: "#57b8ff",
@@ -223,7 +223,7 @@ export const team: Person[] = [
   {
     name: "Carmela Flores",
     role: "Developer",
-    location: "Cebu, Philippines",
+    location: "Manila, Philippines",
     flag: "🇵🇭",
     bio: "Owns the design system, accessibility, and the last five percent of polish. Argues \u2014 usually successfully \u2014 that a confusing dashboard is a broken dashboard.",
     hue: "#8c7cff",
@@ -232,7 +232,7 @@ export const team: Person[] = [
   {
     name: "Robert Eng",
     role: "Developer",
-    location: "Kuala Lumpur, Malaysia",
+    location: "Johor, Malaysia",
     flag: "🇲🇾",
     bio: "Designs the APIs, data models, and job systems everything else stands on. Has a long-running grudge against any endpoint that fails quietly.",
     hue: "#57b8ff",

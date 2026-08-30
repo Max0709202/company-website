@@ -66,9 +66,9 @@ export default function CompanyPage() {
           alt="Distributed team collaborating"
           kicker="Structure"
           title="Trust across cultures, one engineering standard."
-          text="A global team only works if the standard is identical everywhere. Ours is written down, reviewed by the CTO, and applied whether the code was written in Tokyo, Lyon, or São Paulo."
+          text="A global team only works if the standard is identical everywhere. Ours is written down, reviewed by the CTO, and applied whether the code was written in Tottori, Ivry-sur-Seine, or Rio de Janeiro."
           points={[
-            "One shared code standard, reviewed by the CTO in Tokyo",
+            "One shared code standard, reviewed by the CTO in Tottori",
             "Roughly sixteen hours of engineering coverage per day",
             "The person who scoped your project is the person who builds it",
             "US entity and US contracts, with a single point of escalation"
